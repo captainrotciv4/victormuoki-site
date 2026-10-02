@@ -1,14 +1,29 @@
 # Victor Muoki Portfolio
 
-Version-controlled baseline reconstructed from the live Netlify Drop deployment at https://victormuoki.com/.
+Version-controlled Victor Muoki portfolio baseline reconstructed from the live Netlify Drop deployment at https://victormuoki.com/.
 
-## Baseline
+## Interactive media upgrade
 
-- Single-page portfolio in `index.html`
-- Local media in `assets/`
-- Existing Three.js and GSAP motion dependencies remain referenced from their public CDNs
-- Production remains unchanged until a preview is reviewed
+The `feature/interactive-media-system` branch adds:
 
-## Next implementation pass
+- A muted, lightweight `hero-loop.mp4` background with an original `hero-night.svg` static poster fallback.
+- A Nairobi-night media layer with orbit, ECG signal, grid, and mobile-finance rail motifs.
+- A six-step BioCredit journey: Identity → Eligibility → Loan terms → Disbursement → Repayment → Reputation.
+- Interactive 3D-style feature visuals for BioCredit, ZED 360, and Wozzo.
+- Pointer-safe project-card tilt, reveal motion, kinetic philosophy underlines, and a Track Record evidence layer.
+- An accessible walkthrough modal shell with transcript-first copy, ready for the final 60-second video.
+- `prefers-reduced-motion`, focus-visible states, document-visibility pausing, mobile layout fallbacks, and no new runtime dependencies.
 
-The planned upgrade adds a BioCredit media module, animated feature visuals, video/canvas hero treatment, richer project imagery, kinetic philosophy motion, accessibility fallbacks, and mobile performance safeguards.
+## Local preview
+
+```bash
+python3 -m http.server 4173 --bind 0.0.0.0
+```
+
+Open `http://localhost:4173` or the active sandbox preview URL. Production is intentionally unchanged; review the feature branch preview before merging or connecting Netlify to GitHub.
+
+## GitHub
+
+- Repository: https://github.com/captainrotciv4/victormuoki-site
+- Baseline: `main`
+- Upgrade work: `feature/interactive-media-system`

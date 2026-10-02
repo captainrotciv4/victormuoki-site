@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Nairobi at night with a biometric data rail</title>
+  <desc id="desc">A dark Nairobi skyline, gold city lights, grid lines and an ECG waveform.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#05070b"/><stop offset=".58" stop-color="#0b1620"/><stop offset="1" stop-color="#11120f"/></linearGradient>
+    <radialGradient id="haze"><stop stop-color="#e9b95d" stop-opacity=".18"/><stop offset="1" stop-color="#e9b95d" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#e9b95d" stroke-opacity=".08"/></pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <ellipse cx="1180" cy="260" rx="420" ry="280" fill="url(#haze)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <g fill="#e9b95d" opacity=".8" filter="url(#glow)">
+    <circle cx="1260" cy="180" r="2"/><circle cx="1320" cy="206" r="2"/><circle cx="1382" cy="154" r="2"/><circle cx="1178" cy="234" r="2"/><circle cx="1452" cy="250" r="2"/>
+  </g>
+  <g fill="#030406" stroke="#14181c" stroke-width="3">
+    <path d="M0 680V480h85v200h42V390h70v290h35V535h95v145h48V320h90v360h45V470h72v210h34V410h75v270h44V545h110v135h34V355h70v325h58V455h92v225h35V510h105v170h55V400h82v280h35V470h104v210h40V575h96v105h64v220H0Z"/>
+  </g>
+  <g fill="#e9b95d" opacity=".5">
+    <path d="M152 450h30v40h-30zm284-80h32v42h-32zm278 102h28v34h-28zm330-74h32v44h-32zm286 50h34v36h-34z"/>
+  </g>
+  <path d="M0 770H380l20-2 18-4 12-2 18-5 10 4 12 18 9-44 10 28 12-68 10 86 12-15 18 4h242l20-2 18-4 12-2 18-5 10 4 12 18 9-44 10 28 12-68 10 86 12-15 18 4h242l20-2 18-4 12-2 18-5 10 4 12 18 9-44 10 28 12-68 10 86 12-15 18 4H1600" fill="none" stroke="#e9b95d" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+  <g fill="#e9b95d" font-family="monospace" font-size="15" letter-spacing="3" opacity=".65"><text x="68" y="82">NAIROBI / BIOCREDIT / RAIL 01</text><text x="1210" y="82">BPM 72 · CONSENTED SIGNAL</text><text x="68" y="850">IDENTITY → ELIGIBILITY → SETTLEMENT</text></g>
+</svg>

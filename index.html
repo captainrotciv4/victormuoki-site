@@ -3253,8 +3253,15 @@
   }
 
   </style>
+<link rel="stylesheet" href="assets/media-module.css">
 </head>
 <body>
+<!-- INTERACTIVE MEDIA SYSTEM -->
+<div class="media-hero" aria-hidden="true">
+  <video class="media-hero__video" autoplay muted loop playsinline poster="assets/hero-night.svg"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
+  <div class="media-orbit"></div><div class="media-signal"></div>
+</div>
+
 
 <!-- SCROLL PROGRESS BAR — required by the scroll listener below.
      (Previously missing from the DOM: window.addEventListener('scroll', ...) set
@@ -4396,7 +4403,7 @@
     <h2 class="section-title reveal">Featured work.</h2>
     <p class="section-lead reveal reveal-delay-1">Three projects across personal IP, employer implementation, and creative ventures. Each attributed honestly.</p>
     <div class="projects-grid">
-      <article class="project-card reveal" data-hover data-tilt data-card-link="#biocredit-case" data-realm="bio" style="--bg-medical: url('concept-medical-2.jpg')">
+      <article class="project-card reveal" data-hover data-tilt data-media-tilt data-card-link="#biocredit-case" data-realm="bio" style="--bg-medical: url('concept-medical-2.jpg')">
         <div>
           <div class="ix">01 / FinTech · Biometrics</div>
           <h3>BioCredit</h3>
@@ -4413,7 +4420,7 @@
         <a href="#biocredit-case" class="view-link" data-hover data-warp>Read case study <span>→</span></a>
       </article>
 
-      <article class="project-card reveal reveal-delay-1" data-hover data-tilt data-realm="finance" style="--bg-finance: url('concept-finance-2.jpg')">
+      <article class="project-card reveal reveal-delay-1" data-hover data-tilt data-media-tilt data-realm="finance" style="--bg-finance: url('concept-finance-2.jpg')">
         <div>
           <div class="ix">02 / Payments · Implementation</div>
           <h3>ZED 360</h3>
@@ -4429,7 +4436,7 @@
         <a href="#connect" class="view-link" data-hover data-warp>Ask me about it <span>→</span></a>
       </article>
 
-      <article class="project-card reveal reveal-delay-2" data-hover data-tilt data-realm="creative">
+      <article class="project-card reveal reveal-delay-2" data-hover data-tilt data-media-tilt data-realm="creative">
         <div>
           <div class="ix">03 / Creative IP</div>
           <h3>Wozzo</h3>
@@ -4631,6 +4638,26 @@
 </section>
 
 <!-- BIOCREDIT CASE STUDY -->
+
+<!-- BIOCREDIT MEDIA JOURNEY -->
+<section class="container biocredit-media media-reveal" aria-labelledby="media-journey-title">
+  <div class="biocredit-media__intro"><div><div class="section-tag">MEDIA SYSTEM / 01</div><h3 id="media-journey-title">Make the invisible rail visible.</h3></div><p>A compact, animated product story for BioCredit: from a consented biometric signal to portable reputation. This is the visual language for the next chapter of the platform.</p></div>
+  <div class="media-stage" aria-label="Interactive BioCredit identity visualization">
+    <div class="media-stage__grid"></div><div class="media-stage__orb" aria-hidden="true"></div>
+    <div class="media-stage__label">BIOCREDIT / NAIROBI / CONSENTED SIGNAL</div>
+    <div class="media-stage__readout">ECG HASH: A3F9...B27E<br>RAIL STATUS: AUDITABLE</div>
+  </div>
+  <div class="media-flow" role="list" aria-label="BioCredit journey">
+    <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">01</div><h4>Identity</h4><p>Heartbeat becomes a private, consented signature.</p></article>
+    <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">02</div><h4>Eligibility</h4><p>Alternative signals meet a transparent score.</p></article>
+    <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">03</div><h4>Loan terms</h4><p>Principal, tenor, and fees become readable rules.</p></article>
+    <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">04</div><h4>Disbursement</h4><p>Funds move across the rail the borrower already uses.</p></article>
+    <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">05</div><h4>Repayment</h4><p>Each successful payment strengthens the signal.</p></article>
+    <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">06</div><h4>Reputation</h4><p>History stays portable, auditable, and owned.</p></article>
+  </div>
+  <a href="#biocredit-case" class="media-cta" data-media-video>Watch the 60-second BioCredit walkthrough <span aria-hidden="true">↗</span></a>
+</section>
+
 <section id="biocredit-case" data-themed="case">
   <div class="case-bg" aria-hidden="true">
   <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -6253,5 +6280,6 @@
   </svg>
 </div>
 
+<script src="assets/media-module.js" defer></script>
 </body>
 </html>
