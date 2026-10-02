@@ -70,6 +70,28 @@
     });
   };
 
+  const particleField = () => {
+    if (reduce) return;
+    document.querySelectorAll('.media-stage').forEach((stage) => {
+      if (stage.querySelector('.media-particles')) return;
+      const canvas = document.createElement('canvas'); canvas.className = 'media-particles'; canvas.setAttribute('aria-hidden', 'true'); stage.prepend(canvas);
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({ length: 42 }, (_, i) => ({ x: Math.random(), y: Math.random(), z: .25 + Math.random() * .75, size: .7 + Math.random() * 2.2, phase: i * .77 }));
+      let frame = 0;
+      const resize = () => { const rect = stage.getBoundingClientRect(); const ratio = window.devicePixelRatio || 1; canvas.width = rect.width * ratio; canvas.height = rect.height * ratio; canvas.style.width = `${rect.width}px`; canvas.style.height = `${rect.height}px`; ctx.setTransform(ratio, 0, 0, ratio, 0, 0); };
+      const paint = (time) => { const rect = stage.getBoundingClientRect(); ctx.clearRect(0, 0, rect.width, rect.height); particles.forEach((p) => { const drift = Math.sin(time * .00035 + p.phase) * 10 * p.z; const x = p.x * rect.width + drift; const y = ((p.y * rect.height + time * .012 * p.z) % (rect.height + 24)) - 12; ctx.fillStyle = `rgba(233,185,93,${.18 + p.z * .5})`; ctx.beginPath(); ctx.arc(x, y, p.size * p.z, 0, Math.PI * 2); ctx.fill(); }); frame = requestAnimationFrame(paint); };
+      resize(); window.addEventListener('resize', resize, { passive: true }); frame = requestAnimationFrame(paint);
+      document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(frame); else frame = requestAnimationFrame(paint); }, { passive: true });
+    });
+  };
+
+  const railActivation = () => {
+    const steps = [...document.querySelectorAll('.media-step')];
+    if (!steps.length || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (!entry.isIntersecting) return; const index = steps.indexOf(entry.target); steps.forEach((step, stepIndex) => { step.classList.toggle('is-active', stepIndex === index); step.classList.toggle('is-complete', stepIndex < index); }); }), { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+    steps.forEach((step) => observer.observe(step));
+  };
+
   const evidenceLayer = () => {
     const anchor = [...document.querySelectorAll('.section-tag')].find((node) => node.textContent.includes('06 · The Cockpit'));
     if (!anchor || document.querySelector('.evidence-grid')) return;
@@ -92,7 +114,7 @@
     });
   };
 
-  const boot = () => { featureVisuals(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); };
+  const boot = () => { featureVisuals(); particleField(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
 })();
