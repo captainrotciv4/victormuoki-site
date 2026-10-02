@@ -29,12 +29,18 @@
         const y = (event.clientY - rect.top) / rect.height - .5;
         cancelAnimationFrame(frame);
         frame = requestAnimationFrame(() => {
-          card.style.transform = `perspective(900px) rotateX(${(-y * 3).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg) translateY(-4px)`;
+          card.style.setProperty('--media-rx', `${(-y * 5).toFixed(2)}deg`);
+          card.style.setProperty('--media-ry', `${(x * 7).toFixed(2)}deg`);
+          card.style.setProperty('--media-glare-x', `${((x + .5) * 100).toFixed(1)}%`);
+          card.style.setProperty('--media-glare-y', `${((y + .5) * 100).toFixed(1)}%`);
+          card.classList.add('is-tilting');
         });
       });
       card.addEventListener('pointerleave', () => {
         cancelAnimationFrame(frame);
-        card.style.transform = '';
+        card.classList.remove('is-tilting');
+        card.style.setProperty('--media-rx', '0deg');
+        card.style.setProperty('--media-ry', '0deg');
       });
     });
   };
