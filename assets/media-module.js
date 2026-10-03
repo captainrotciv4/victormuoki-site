@@ -77,7 +77,8 @@
   };
 
   const particleField = () => {
-    if (reduce) return;
+    const richMotion = window.matchMedia('(min-width: 701px) and (hover: hover) and (pointer: fine)').matches;
+    if (reduce || !richMotion) return;
     document.querySelectorAll('.media-stage').forEach((stage) => {
       if (stage.querySelector('.media-particles')) return;
       const canvas = document.createElement('canvas'); canvas.className = 'media-particles'; canvas.setAttribute('aria-hidden', 'true'); stage.prepend(canvas);
