@@ -8,3 +8,6 @@ These loops are deterministic image-to-motion treatments derived from the curate
 - `assets/video/sport-loop.mp4` — football energy loop
 
 They are intentionally short, muted, and lightweight for web backgrounds. Keep `prefers-reduced-motion` fallbacks enabled and use `poster` images for mobile or slow connections.
+
+- `assets/video/zed360-loop.mp4` — fintech / payments loop
+- `assets/video/wozzo-loop.mp4` — creative IP / Wozzo loop
