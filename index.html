@@ -1409,15 +1409,15 @@
   #garage .garage-item p { color: #CBD5E1 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.85); }
 
   :root {
-  --bg-sport: url("concept-sport.jpg");
+  --bg-sport: url("concept-sport-2.jpg");
   --bg-africa: url("concept-africa.jpg");
   --bg-medical: url("concept-bio.jpg");
-  --bg-ai: url("concept-ai.jpg");
+  --bg-ai: url("concept-ai-2.jpg");
   --bg-crypto: url("concept-chain.jpg");
   --bg-finance: url("concept-finance.jpg");
-  --bg-security: url("concept-security.jpg");
+  --bg-security: url("concept-security-3.jpg");
   --bg-creative: url("concept-creative.jpg");
-  --bg-climate: url("concept-climate.jpg");
+  --bg-climate: url("concept-climate-2.jpg");
 }
 
   /* ═══ APPLY PREMIUM REALM BACKGROUNDS to Stack + Cockpit + Case chain blocks ═══ */
@@ -4418,7 +4418,7 @@
     <h2 class="section-title reveal">Featured work.</h2>
     <p class="section-lead reveal reveal-delay-1">Three projects across personal IP, employer implementation, and creative ventures. Each attributed honestly.</p>
     <div class="projects-grid">
-      <article class="project-card reveal" data-hover data-tilt data-media-tilt data-card-link="#biocredit-case" data-realm="bio" style="--bg-medical: url('concept-medical-2.jpg')">
+      <article class="project-card reveal" data-hover data-tilt data-media-tilt data-card-link="#biocredit-case" data-realm="bio" style="--bg-medical: url('concept-bio.jpg')">
         <div>
           <div class="ix">01 / FinTech · Biometrics</div>
           <h3>BioCredit</h3>
@@ -4435,7 +4435,7 @@
         <a href="#biocredit-case" class="view-link" data-hover data-warp>Read case study <span>→</span></a>
       </article>
 
-      <article class="project-card reveal reveal-delay-1" data-hover data-tilt data-media-tilt data-realm="finance" style="--bg-finance: url('concept-finance-2.jpg')">
+      <article class="project-card reveal reveal-delay-1" data-hover data-tilt data-media-tilt data-realm="finance" style="--bg-finance: url('concept-finance.jpg')">
         <div>
           <div class="ix">02 / Payments · Implementation</div>
           <h3>ZED 360</h3>
@@ -4596,7 +4596,7 @@
         </div>
       </div>
 
-      <div class="stack-card reveal reveal-delay-3" data-expandable data-tilt data-color="teal" data-realm="security" style="--bg-security: url('concept-security-2.jpg')">
+      <div class="stack-card reveal reveal-delay-3" data-expandable data-tilt data-color="teal" data-realm="security" style="--bg-security: url('concept-security-3.jpg')">
         <div class="stack-card-header">
           <span class="stack-card-dot"></span>
           <span class="stack-card-title">Security &amp; Privacy</span>
@@ -4658,6 +4658,7 @@
 <section class="container biocredit-media media-reveal" aria-labelledby="media-journey-title">
   <div class="biocredit-media__intro"><div><div class="section-tag">MEDIA SYSTEM / 01</div><h3 id="media-journey-title">Make the invisible rail visible.</h3></div><p>A compact, animated product story for BioCredit: from a consented biometric signal to portable reputation. This is the visual language for the next chapter of the platform.</p></div>
   <div class="media-stage" aria-label="Interactive BioCredit identity visualization">
+    <video class="curated-media-video curated-media-video--stage" autoplay muted loop playsinline preload="none" poster="assets/concept-chain.jpg" aria-label="Animated gold blockchain visual for BioCredit"><source src="assets/video/biocredit-loop.mp4" type="video/mp4"></video>
     <div class="media-stage__grid"></div><div class="media-stage__orb" aria-hidden="true"></div>
     <div class="media-stage__label">BIOCREDIT / NAIROBI / CONSENTED SIGNAL</div>
     <div class="media-stage__readout">ECG HASH: A3F9...B27E<br>RAIL STATUS: AUDITABLE</div>
@@ -4671,6 +4672,13 @@
     <article class="media-step media-reveal" role="listitem"><div class="media-step__icon">06</div><h4>Reputation</h4><p>History stays portable, auditable, and owned.</p></article>
   </div>
   <a href="#biocredit-case" class="media-cta" data-media-video>Watch the 60-second BioCredit walkthrough <span aria-hidden="true">↗</span></a>
+</section>
+<section class="container curated-video-rail media-reveal" aria-labelledby="curated-video-title">
+  <div class="biocredit-media__intro"><div><div class="section-tag">MOTION STUDIES / 02</div><h3 id="curated-video-title">Selected images, put in motion.</h3></div><p>Short, silent loops give the strongest portfolio visuals a sense of depth without turning the site into a heavy video wall.</p></div>
+  <div class="curated-video-grid">
+    <figure class="curated-video-card"><video autoplay muted loop playsinline preload="none" poster="assets/concept-ai-2.jpg" aria-label="Animated AI network visual"><source src="assets/video/ai-loop.mp4" type="video/mp4"></video><figcaption><span>AI / AGENTS</span><strong>Systems that think in motion.</strong></figcaption></figure>
+    <figure class="curated-video-card"><video autoplay muted loop playsinline preload="none" poster="assets/concept-sport-2.jpg" aria-label="Animated football energy visual"><source src="assets/video/sport-loop.mp4" type="video/mp4"></video><figcaption><span>SPORT / PERSONAL IP</span><strong>Energy with a point of view.</strong></figcaption></figure>
+  </div>
 </section>
 
 <section id="biocredit-case" data-themed="case">
@@ -4764,7 +4772,7 @@
     </div>
 
     <div class="chain-viz reveal">
-      <div class="chain-block" data-expandable data-realm="bio" style="--bg-medical: url('concept-medical-2.jpg')">
+      <div class="chain-block" data-expandable data-realm="bio" style="--bg-medical: url('concept-bio.jpg')">
         <div class="chain-block-tag"><span>BLOCK 0x01</span><span>EPOCH 1</span></div>
         <div class="chain-block-hash">0xa3f9...b27e</div>
         <div class="chain-block-content"><div class="sub-tab" data-hover><span class="sub-tab-verb">→ identity verified</span><span class="sub-tab-desc">Borrower scans ECG; the heartbeat is hashed into a unique cryptographic signature.</span></div><div class="sub-tab" data-hover><span class="sub-tab-verb">→ heartbeat hash signed</span><span class="sub-tab-desc">Hash is signed by the user's on-device key — no central server can forge it.</span></div></div>
@@ -4774,12 +4782,12 @@
         <div class="chain-block-hash">0xc8e1...4d92</div>
         <div class="chain-block-content"><div class="sub-tab" data-hover><span class="sub-tab-verb">→ eligibility scored</span><span class="sub-tab-desc">Lightweight AI model assesses risk against history + cohort behaviour.</span></div><div class="sub-tab" data-hover><span class="sub-tab-verb">→ loan terms set</span><span class="sub-tab-desc">Smart contract sets principal, interest, tenor, and repayment schedule on-chain.</span></div></div>
       </div>
-      <div class="chain-block" data-expandable data-realm="finance" style="--bg-finance: url('concept-finance-2.jpg')">
+      <div class="chain-block" data-expandable data-realm="finance" style="--bg-finance: url('concept-finance.jpg')">
         <div class="chain-block-tag"><span>BLOCK 0x03</span><span>EPOCH 1</span></div>
         <div class="chain-block-hash">0x71d4...9a07</div>
         <div class="chain-block-content"><div class="sub-tab" data-hover><span class="sub-tab-verb">→ funds disbursed</span><span class="sub-tab-desc">Approved amount lands in the borrower's wallet within seconds, no branch visit.</span></div><div class="sub-tab" data-hover><span class="sub-tab-verb">→ multi-rail settled</span><span class="sub-tab-desc">Settlement happens across the rails the borrower already uses — M-PESA, bank, USDC.</span></div></div>
       </div>
-      <div class="chain-block" data-expandable data-realm="chain" style="--bg-crypto: url('concept-crypto-2.jpg')">
+      <div class="chain-block" data-expandable data-realm="chain" style="--bg-crypto: url('concept-chain.jpg')">
         <div class="chain-block-tag"><span>BLOCK 0x04</span><span>EPOCH 2</span></div>
         <div class="chain-block-hash">0xf2b6...e503</div>
         <div class="chain-block-content"><div class="sub-tab" data-hover><span class="sub-tab-verb">→ repayment logged</span><span class="sub-tab-desc">Each repayment is recorded on-chain — borrower owns their credit history forever.</span></div><div class="sub-tab" data-hover><span class="sub-tab-verb">→ borrower score ↑</span><span class="sub-tab-desc">Reputation score rises; cheaper future loans, never sold to third parties.</span></div></div>
@@ -4979,7 +4987,7 @@
     <h2 class="section-title reveal">Capabilities.</h2>
     <p class="section-lead reveal reveal-delay-1">LinkedIn-validated. Endorsed by colleagues, education, and verified credentials.</p>
     <div class="skill-grid">
-      <div class="skill-cluster reveal" data-expandable data-tilt data-realm="finance" style="--bg-finance: url('concept-finance-3.jpg')">
+      <div class="skill-cluster reveal" data-expandable data-tilt data-realm="finance" style="--bg-finance: url('concept-finance.jpg')">
         <h4>FinTech &amp; Payments</h4>
         <ul>
           <li>Payment Gateway</li>
@@ -4989,7 +4997,7 @@
           <li>IT Infrastructure</li>
         </ul>
       </div>
-      <div class="skill-cluster reveal reveal-delay-1" data-expandable data-tilt data-realm="ai" style="--bg-ai: url('concept-ai-3.jpg')">
+      <div class="skill-cluster reveal reveal-delay-1" data-expandable data-tilt data-realm="ai" style="--bg-ai: url('concept-ai-2.jpg')">
         <h4>AI &amp; Machine Learning</h4>
         <ul>
           <li>Python</li>
@@ -4999,7 +5007,7 @@
           <li>AI / Agent design</li>
         </ul>
       </div>
-      <div class="skill-cluster reveal reveal-delay-2" data-expandable data-tilt data-realm="medical" style="--bg-medical: url('concept-medical-3.jpg')">
+      <div class="skill-cluster reveal reveal-delay-2" data-expandable data-tilt data-realm="medical" style="--bg-medical: url('concept-bio.jpg')">
         <h4>Biometry &amp; Data</h4>
         <ul>
           <li>Statistical Data Analysis</li>
@@ -5009,7 +5017,7 @@
           <li>Data Science</li>
         </ul>
       </div>
-      <div class="skill-cluster reveal reveal-delay-3" data-expandable data-tilt data-realm="creative" style="--bg-creative: url('concept-creative-3.jpg')">
+      <div class="skill-cluster reveal reveal-delay-3" data-expandable data-tilt data-realm="creative" style="--bg-creative: url('concept-creative.jpg')">
         <h4>Strategy &amp; Leadership</h4>
         <ul>
           <li>Strategic Planning</li>
@@ -5106,7 +5114,7 @@
         <p>Volunteer reform work with the federation — player-centric policy, tournament logistics, athlete and parent consent frameworks.</p>
       </div>
 
-      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="sport" style="--bg-sport: url('concept-creative-2.jpg')">
+      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="sport" style="--bg-sport: url('concept-creative.jpg')">
         <div>
           <div class="kind">Discipline · Practice</div>
           <h5>Three-Art Martial Arts</h5>
@@ -5114,7 +5122,7 @@
         <p>Karate · Kenpo · Tongil Moo Do — tri-discipline practice.</p>
       </div>
 
-      <div class="garage-item tall reveal reveal-delay-2" data-hover data-tilt data-realm="sport" style="--bg-sport: url('concept-sport-4.jpg')">
+      <div class="garage-item tall reveal reveal-delay-2" data-hover data-tilt data-realm="sport" style="--bg-sport: url('concept-sport-2.jpg')">
         <div>
           <div class="kind">Web · Concept</div>
           <h5>Fiero Unstoppable Canvas</h5>
@@ -5130,7 +5138,7 @@
         <p>Roller-sport practice — football on skates. Community play.</p>
       </div>
 
-      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="sport" style="--bg-sport: url('concept-sport-5.jpg')">
+      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="sport" style="--bg-sport: url('concept-sport-2.jpg')">
         <div>
           <div class="kind">Sport · Club · Nairobi</div>
           <h5>Golden Vibuyu</h5>
@@ -5146,7 +5154,7 @@
         <p>Sustainable Development Goals advocacy — student-led financial inclusion focus.</p>
       </div>
 
-      <div class="garage-item reveal" data-hover data-tilt data-realm="africa" style="--bg-africa: url('concept-africa-2.jpg')">
+      <div class="garage-item reveal" data-hover data-tilt data-realm="africa" style="--bg-africa: url('concept-africa.jpg')">
         <div>
           <div class="kind">Student Leadership</div>
           <h5>International Youth Federation</h5>
@@ -5154,7 +5162,7 @@
         <p>Kisii University chapter — SDG and financial-inclusion student work.</p>
       </div>
 
-      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="africa" style="--bg-africa: url('concept-africa-3.jpg')">
+      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="africa" style="--bg-africa: url('concept-africa.jpg')">
         <div>
           <div class="kind">Civic · Volunteer</div>
           <h5>Pro Bono Community Advocacy</h5>
@@ -5162,7 +5170,7 @@
         <p>Volunteer Lead Advocate &amp; Community Organizer · Sep 2024 – Mar 2025.</p>
       </div>
 
-      <div class="garage-item wide reveal reveal-delay-2" data-hover data-tilt data-realm="medical" style="--bg-medical: url('concept-medical-2.jpg')">
+      <div class="garage-item wide reveal reveal-delay-2" data-hover data-tilt data-realm="medical" style="--bg-medical: url('concept-bio.jpg')">
         <div>
           <div class="kind">Research · Health-AI</div>
           <h5>Health-AI Research</h5>
@@ -5170,7 +5178,7 @@
         <p>Prevention &amp; control of non-communicable diseases. AI disease-prediction toolkit. Bioinformatics × clinical informatics synergy — the academic backbone of the BioCredit ethics framework.</p>
       </div>
 
-      <div class="garage-item wide reveal" data-hover data-tilt data-realm="crypto" style="--bg-crypto: url('concept-crypto-3.jpg')">
+      <div class="garage-item wide reveal" data-hover data-tilt data-realm="crypto" style="--bg-crypto: url('concept-chain.jpg')">
         <div>
           <div class="kind">FinTech · Crypto · Tokenomics</div>
           <h5>FinTech, Crypto &amp; Tokenomics Literacy</h5>
@@ -5186,7 +5194,7 @@
         <p>Gen AI · LLMs · ML · deep learning · deepfake detection · chatbot &amp; agent architecture. Building AI that operates as a second instance of the operator — externalising thought, not just answering it.</p>
       </div>
 
-      <div class="garage-item reveal reveal-delay-2" data-hover data-tilt data-realm="finance" style="--bg-finance: url('concept-finance-2.jpg')">
+      <div class="garage-item reveal reveal-delay-2" data-hover data-tilt data-realm="finance" style="--bg-finance: url('concept-finance.jpg')">
         <div>
           <div class="kind">E-commerce · Authoring</div>
           <h5>Zedfy E-commerce</h5>
@@ -5202,7 +5210,7 @@
         <p>SPF / DKIM / DMARC email hardening · DNS hygiene · PGP-grade cryptography · ransomware defence · browser-fingerprinting (Genesis Market-class) awareness · bulletproof-host risk · scam-link verification (NDMA pattern) · unauthorised-access legal implications · consent &amp; data ethics. The defensive surface for any platform handling biometric or financial trust.</p>
       </div>
 
-      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="finance" style="--bg-finance: url('concept-finance-3.jpg')">
+      <div class="garage-item reveal reveal-delay-1" data-hover data-tilt data-realm="finance" style="--bg-finance: url('concept-finance.jpg')">
         <div>
           <div class="kind">Operations · Strategy</div>
           <h5>Strategic Purchasing &amp; Supply</h5>
@@ -5210,7 +5218,7 @@
         <p>Notes on supplier management, procurement frameworks, and the operational discipline behind growing organisations.</p>
       </div>
 
-      <div class="garage-item wide reveal reveal-delay-2" data-hover data-tilt data-realm="creative" style="--bg-creative: url('concept-creative-2.jpg')">
+      <div class="garage-item wide reveal reveal-delay-2" data-hover data-tilt data-realm="creative" style="--bg-creative: url('concept-creative.jpg')">
         <div>
           <div class="kind">Design · Independent</div>
           <h5>Brand, Design &amp; Sports-Tech</h5>
@@ -5226,7 +5234,7 @@
         <p>Composing professional posts for diplomatic and industry events. Tone, framing, audience calibration.</p>
       </div>
 
-      <div class="garage-item wide reveal reveal-delay-1" data-hover data-tilt data-realm="crypto" style="--bg-crypto: url('concept-crypto-2.jpg')">
+      <div class="garage-item wide reveal reveal-delay-1" data-hover data-tilt data-realm="crypto" style="--bg-crypto: url('concept-chain.jpg')">
         <div>
           <div class="kind">Web3 · DeFi · Markets</div>
           <h5>Tokenomics &amp; Web3 Markets</h5>
@@ -5234,7 +5242,7 @@
         <p>Total supply · distribution · utility · incentives · governance · fees · burns. Sequencers, EOAs, epochs. Smart contracts and dApps. NFT marketplaces compared (xibit.app vs OpenSea). Flat trading, DEX bots, depth-of-market mechanics. The programmable-money research surface.</p>
       </div>
 
-      <div class="garage-item reveal reveal-delay-2" data-hover data-tilt data-realm="climate" style="--bg-climate: url('concept-climate-3.jpg')">
+      <div class="garage-item reveal reveal-delay-2" data-hover data-tilt data-realm="climate" style="--bg-climate: url('concept-climate-2.jpg')">
         <div>
           <div class="kind">Climate · Urban</div>
           <h5>Sustainability Tech</h5>
@@ -5242,7 +5250,7 @@
         <p>Moss-tile installations alongside highways — absorbing tire-dust particulates and urban air pollutants. Practical climate tech that scales with existing infrastructure rather than replacing it.</p>
       </div>
 
-      <div class="garage-item reveal" data-hover data-tilt data-realm="medical" style="--bg-medical: url('concept-medical-3.jpg')">
+      <div class="garage-item reveal" data-hover data-tilt data-realm="medical" style="--bg-medical: url('concept-bio.jpg')">
         <div>
           <div class="kind">Health · Identity</div>
           <h5>Universal Health Cards</h5>

@@ -49,3 +49,19 @@ html[data-media-paused="true"] .media-orbit,html[data-media-paused="true"] .medi
 @media (hover:hover) and (pointer:fine){[data-tilt]{transform-style:preserve-3d}}
 @media (max-width:700px), (prefers-reduced-motion:reduce){.media-hero__video{display:none}.media-particles{display:none}.media-orbit,.media-signal::after,.media-stage::before,.media-stage__grid,.media-stage__orb,.media-stage__orb::after,.feature-visual__ring,.feature-visual__ring::after,.feature-visual__bars i,.motion-principle::after{animation:none!important}.media-step,.media-cta,.media-reveal,.projects-grid .project-card[data-media-tilt]{transition:none}.projects-grid .project-card[data-media-tilt]{transform:none!important}.media-stage__grid{transform:rotateX(58deg) rotateZ(-7deg) translateY(8%)}.media-hero::before{opacity:.42}}
 @media (forced-colors:active){.media-hero,.media-stage,.feature-visual,.media-step{forced-color-adjust:none;border-color:CanvasText}.media-cta{border-color:ButtonText;color:ButtonText}}
+
+/* Curated image-to-motion studies */
+.curated-media-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.20;mix-blend-mode:screen;filter:saturate(.86) contrast(1.08);pointer-events:none}
+.curated-media-video--stage{z-index:0}
+.media-stage > :not(.curated-media-video){position:relative;z-index:1}
+.curated-video-rail{margin-top:0}
+.curated-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.curated-video-card{position:relative;min-height:260px;margin:0;overflow:hidden;border:1px solid rgba(233,185,93,.18);background:#0b0e15}
+.curated-video-card video{display:block;width:100%;height:100%;min-height:260px;object-fit:cover;filter:saturate(.82) contrast(1.06);opacity:.76;transition:transform .8s ease,opacity .5s ease}
+.curated-video-card:hover video{transform:scale(1.045);opacity:.96}
+.curated-video-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,.05) 25%,rgba(7,9,15,.88) 100%);pointer-events:none}
+.curated-video-card figcaption{position:absolute;z-index:1;left:1.1rem;right:1.1rem;bottom:1rem;display:grid;gap:.35rem}
+.curated-video-card figcaption span{font:700 .66rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:#e9b95d}
+.curated-video-card figcaption strong{font-size:clamp(1.2rem,2.2vw,2rem);line-height:1.05;color:#fff}
+@media (max-width:700px){.curated-video-grid{grid-template-columns:1fr}.curated-video-card,.curated-video-card video{min-height:210px}.curated-media-video{opacity:.12}}
+@media (prefers-reduced-motion:reduce){.curated-media-video{display:none}.curated-video-card video{display:none}.curated-video-card{background-position:center;background-size:cover}.curated-video-card:first-child{background-image:url("concept-ai-2.jpg")}.curated-video-card:last-child{background-image:url("concept-sport-2.jpg")}}
