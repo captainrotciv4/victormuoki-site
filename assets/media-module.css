@@ -65,3 +65,29 @@ html[data-media-paused="true"] .media-orbit,html[data-media-paused="true"] .medi
 .curated-video-card figcaption strong{font-size:clamp(1.2rem,2.2vw,2rem);line-height:1.05;color:#fff}
 @media (max-width:700px){.curated-video-grid{grid-template-columns:1fr}.curated-video-card,.curated-video-card video{min-height:210px}.curated-media-video{opacity:.12}}
 @media (prefers-reduced-motion:reduce){.curated-media-video{display:none}.curated-video-card video{display:none}.curated-video-card{background-position:center;background-size:cover}.curated-video-card:first-child{background-image:url("concept-ai-2.jpg")}.curated-video-card:last-child{background-image:url("concept-sport-2.jpg")}}
+
+/* Original Afrofuturist visual system: obsidian, copper, emerald, cyan. */
+:root{--wakanda-copper:#e9b95d;--wakanda-emerald:#36d399;--wakanda-cyan:#55d6d0;--wakanda-obsidian:#05070b}
+.media-hero::before{background:linear-gradient(90deg,rgba(5,7,11,.92) 0%,rgba(5,7,11,.55) 46%,rgba(5,7,11,.12) 100%),url("wakanda-hero.png") center/cover no-repeat;opacity:.82}
+.media-hero::after{background:radial-gradient(circle at 72% 28%,rgba(54,211,153,.13),transparent 26%),radial-gradient(circle at 56% 56%,rgba(85,214,208,.08),transparent 34%),linear-gradient(180deg,transparent 58%,rgba(5,7,11,.98));opacity:.72}
+.media-hero__video{opacity:.3;filter:saturate(.72) contrast(1.08);mix-blend-mode:screen}
+.wakanda-stage{background:radial-gradient(circle at 78% 42%,rgba(54,211,153,.14),transparent 28%),#05070b}
+.wakanda-stage__image{position:absolute;right:0;top:0;width:72%;height:100%;object-fit:cover;opacity:.48;mix-blend-mode:screen;filter:saturate(.8) contrast(1.12);z-index:0}
+.wakanda-orb-model{position:absolute;right:10%;top:13%;width:38%;height:74%;z-index:2;--poster-color:transparent;background:transparent;filter:drop-shadow(0 0 30px rgba(54,211,153,.2))}
+.wakanda-gallery{padding-top:clamp(3rem,8vw,7rem);padding-bottom:clamp(3rem,8vw,7rem)}
+.wakanda-gallery-grid{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(2,minmax(220px,1fr));gap:1rem}
+.wakanda-gallery-card{position:relative;min-height:260px;overflow:hidden;border:1px solid rgba(233,185,93,.2);background:#080c11;margin:0}
+.wakanda-gallery-card--wide{grid-row:span 2;min-height:540px}
+.wakanda-gallery-card img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.08);transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .5s ease}
+.wakanda-gallery-card:hover img{transform:scale(1.045);filter:saturate(1) contrast(1.08)}
+.wakanda-gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(5,7,11,.92) 100%);pointer-events:none}
+.wakanda-gallery-card figcaption{position:absolute;z-index:1;left:1.25rem;right:1.25rem;bottom:1.15rem;display:grid;gap:.35rem}
+.wakanda-gallery-card figcaption span{font:700 .66rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:var(--wakanda-copper)}
+.wakanda-gallery-card figcaption strong{font-size:clamp(1.15rem,2.2vw,2rem);line-height:1.04;color:#fff}
+.feature-visual{isolation:isolate;background:#080c11}
+.feature-visual__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.56;filter:saturate(.78) contrast(1.08);mix-blend-mode:screen;transition:transform .8s ease,opacity .5s ease}
+.project-card:hover .feature-visual__image{transform:scale(1.06);opacity:.76}
+.feature-visual__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,11,.16),rgba(5,7,11,.76));z-index:1}
+.feature-visual__ring,.feature-visual__bars,.feature-visual .media-stage__label{z-index:2}
+@media(max-width:700px){.wakanda-stage__image{width:100%;opacity:.32}.wakanda-orb-model{right:4%;width:46%;height:62%;top:18%}.wakanda-gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.wakanda-gallery-card,.wakanda-gallery-card--wide{grid-row:auto;min-height:280px}.wakanda-gallery-card--wide{min-height:360px}}
+@media(prefers-reduced-motion:reduce){.wakanda-gallery-card img{transition:none}.wakanda-orb-model{display:none}.wakanda-stage__image{opacity:.42}}
