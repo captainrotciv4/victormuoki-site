@@ -302,3 +302,22 @@ model-viewer{touch-action:pan-y;contain:layout paint}
 .touch-active.cinematic-plate,.touch-active.wakanda-stage{transform:translateY(-3px);border-color:rgba(245,196,96,.62);box-shadow:0 18px 52px rgba(0,0,0,.34),0 0 34px rgba(54,211,153,.1)}
 .touch-active.cinematic-plate .cinematic-plate__media,.touch-active.wakanda-stage .wakanda-stage__image{transform:scale(1.035);filter:saturate(1.1) contrast(1.06) brightness(1.04)}
 @media (prefers-reduced-motion:reduce){.cinematic-plate,.wakanda-stage,.cinematic-plate__media,.wakanda-stage__image{transition:none!important}.cinematic-plate:hover,.wakanda-stage:hover,.touch-active.cinematic-plate,.touch-active.wakanda-stage{transform:none}.cinematic-plate::after,.wakanda-stage::after{display:none}}
+
+
+/* AMBIENT WORLD: low-density particles and perspective orbits for quieter sections. */
+.has-ambient-world{isolation:isolate;--ambient-x:0px;--ambient-y:0px}
+.has-ambient-world>.ambient-particles{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.72;mix-blend-mode:screen}
+.has-ambient-world>.ambient-orbit{position:absolute;z-index:0;right:6%;top:18%;width:min(28vw,360px);height:min(20vw,250px);border:1px solid rgba(245,196,96,.2);border-radius:50%;transform:translate3d(var(--ambient-x),var(--ambient-y),0) rotate(-18deg);transition:transform 480ms cubic-bezier(.23,1,.32,1);pointer-events:none;box-shadow:0 0 44px rgba(245,196,96,.05)}
+.has-ambient-world>.ambient-orbit::before,.has-ambient-world>.ambient-orbit::after{content:"";position:absolute;inset:14% -9%;border:1px solid rgba(54,211,153,.16);border-radius:50%;transform:rotate(46deg)}
+.has-ambient-world>.ambient-orbit::after{inset:-12% 14%;transform:rotate(-64deg);border-color:rgba(245,196,96,.11)}
+.has-ambient-world>.ambient-orbit span{position:absolute;width:6px;height:6px;left:50%;top:50%;margin:-3px;border-radius:50%;background:#f5c460;box-shadow:0 0 18px rgba(245,196,96,.86);transform-origin:0 0;animation:ambientOrbit 9s linear infinite}
+.has-ambient-world>.ambient-orbit span:nth-child(2){animation-duration:13s;animation-direction:reverse;background:#36d399;box-shadow:0 0 18px rgba(54,211,153,.8)}
+.has-ambient-world>.ambient-orbit span:nth-child(3){animation-duration:17s;width:4px;height:4px;margin:-2px}
+@keyframes ambientOrbit{to{transform:rotate(360deg) translateX(min(14vw,180px)) rotate(-360deg)}}
+.has-ambient-world>.container,[data-themed]>.container{position:relative;z-index:2}
+#track>.ambient-orbit,#cockpit>.ambient-orbit,#garage>.ambient-orbit{right:10%;top:11%;opacity:.72}
+#blueprint>.ambient-orbit{left:7%;right:auto;top:21%;border-color:rgba(54,211,153,.2)}
+#credentials>.ambient-orbit,#connect>.ambient-orbit{right:12%;top:23%;opacity:.58}
+.quote-band>.ambient-orbit{right:18%;top:12%;opacity:.58}
+@media (max-width:760px){.has-ambient-world>.ambient-particles{opacity:.42}.has-ambient-world>.ambient-orbit{width:44vw;height:32vw;right:3%;top:12%;opacity:.5}.has-ambient-world>.ambient-orbit span{animation-duration:14s}.has-ambient-world>.ambient-orbit span:nth-child(2){animation-duration:19s}}
+@media (prefers-reduced-motion:reduce){.has-ambient-world>.ambient-orbit{transform:none;transition:none}.has-ambient-world>.ambient-orbit span{animation:none}.has-ambient-world>.ambient-particles{display:none}}

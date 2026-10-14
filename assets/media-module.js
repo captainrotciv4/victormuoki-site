@@ -93,6 +93,33 @@
     });
   };
 
+  const ambientWorld = () => {
+    const targets = [...document.querySelectorAll('#bridge, #engine, #stack, #biocredit-case, #track, #cockpit, #garage, #blueprint, #credentials, #connect, .quote-band')];
+    if (!targets.length) return;
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const count = fine ? 34 : 16;
+    targets.forEach((section, sectionIndex) => {
+      if (section.querySelector('.ambient-particles')) return;
+      section.classList.add('has-ambient-world');
+      const canvas = document.createElement('canvas');
+      canvas.className = 'ambient-particles'; canvas.setAttribute('aria-hidden', 'true');
+      const orbit = document.createElement('div'); orbit.className = 'ambient-orbit'; orbit.setAttribute('aria-hidden', 'true');
+      orbit.innerHTML = '<span></span><span></span><span></span>';
+      section.prepend(canvas, orbit);
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({length: count}, (_, i) => ({x:Math.random(), y:Math.random(), z:.2+Math.random()*.8, r:.6+Math.random()*1.8, p:i*.71+sectionIndex}));
+      let width=0,height=0,frame=0,visible=true;
+      const resize=()=>{const rect=section.getBoundingClientRect(),ratio=Math.min(window.devicePixelRatio||1,2);width=rect.width;height=rect.height;canvas.width=width*ratio;canvas.height=height*ratio;canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;ctx.setTransform(ratio,0,0,ratio,0,0)};
+      const paint=(time)=>{if(!visible||document.hidden){frame=0;return}ctx.clearRect(0,0,width,height);particles.forEach(p=>{const x=p.x*width+Math.sin(time*.00018+p.p)*18*p.z;const y=((p.y*height+time*.009*p.z)%(height+32))-16;ctx.fillStyle=`rgba(${sectionIndex%2?'54,211,153':'245,196,96'},${.08+p.z*.26})`;ctx.beginPath();ctx.arc(x,y,p.r*p.z,0,Math.PI*2);ctx.fill()});frame=requestAnimationFrame(paint)};
+      resize();
+      const observer='IntersectionObserver' in window?new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;if(visible&&!reduce&&!frame)frame=requestAnimationFrame(paint)},{rootMargin:'20% 0px 20% 0px',threshold:0}):null;
+      if(observer)observer.observe(section); else if(!reduce)frame=requestAnimationFrame(paint);
+      window.addEventListener('resize',resize,{passive:true});
+      if(fine&&!reduce){section.addEventListener('pointermove',(e)=>{const r=section.getBoundingClientRect();section.style.setProperty('--ambient-x',`${((e.clientX-r.left)/r.width-.5)*10}px`);section.style.setProperty('--ambient-y',`${((e.clientY-r.top)/r.height-.5)*8}px`)},{passive:true});section.addEventListener('pointerleave',()=>{section.style.setProperty('--ambient-x','0px');section.style.setProperty('--ambient-y','0px')},{passive:true})}
+      document.addEventListener('visibilitychange',()=>{if(document.hidden&&frame)cancelAnimationFrame(frame);else if(!document.hidden&&visible&&!reduce&&!frame)frame=requestAnimationFrame(paint)},{passive:true});
+    });
+  };
+
   const railActivation = () => {
     const steps = [...document.querySelectorAll('.media-step')];
     if (!steps.length || !('IntersectionObserver' in window)) return;
@@ -226,7 +253,7 @@
     }, { passive: true });
   };
 
-  const boot = () => { featureVisuals(); particleField(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); responsivePolish(); engineStage(); cinematicPlateSystem(); };
+  const boot = () => { featureVisuals(); particleField(); ambientWorld(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); responsivePolish(); engineStage(); cinematicPlateSystem(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
 })();
