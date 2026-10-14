@@ -4161,6 +4161,7 @@
 </div>
 
 <!-- ENGINE -->
+<div class="scroll-world-bridge" aria-hidden="true"><span></span><span></span><span></span></div>
 <section id="engine">
   <div class="engine-bg" aria-hidden="true">
   <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
@@ -4436,6 +4437,12 @@
       </div>
       <div class="engine-stage__model">
         <div class="engine-stage__halo" aria-hidden="true"></div>
+        <div class="engine-cycle" aria-label="Animated cutaway showing the Mercedes M279 V12 piston cycle">
+          <video class="engine-cycle__video" autoplay muted loop playsinline preload="none" poster="assets/optimized/wakanda-hero.webp">
+            <source src="assets/video/engine-pistons-loop.mp4" type="video/mp4">
+          </video>
+          <span class="engine-cycle__label">LIVE MECHANICAL CYCLE / 12 PISTONS</span>
+        </div>
         <model-viewer class="engine-model" src="assets/engine-m279.glb" alt="Interactive 3D render of a V12 engine" camera-controls auto-rotate rotation-per-second="8deg" shadow-intensity="1" exposure="1.05" environment-image="neutral" interaction-prompt="auto" loading="lazy"></model-viewer>
       </div>
       <div class="engine-stage__readout" aria-hidden="true"><span>TORQUE / OUTPUT</span><span>V12 / TWIN TURBO</span><span>NAIROBI / SYSTEMS</span></div>
