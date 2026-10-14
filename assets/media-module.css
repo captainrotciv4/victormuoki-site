@@ -196,3 +196,30 @@ html[data-media-paused="true"] .media-orbit,html[data-media-paused="true"] .medi
 @keyframes heroPanelFloat{0%{transform:translateY(0);opacity:.5}100%{transform:translateY(-9px);opacity:.82}}
 @media(max-width:700px){.hero-ambient__panel{width:142px;transform:scale(.86);transform-origin:left top}.hero-ambient__panel--right{transform-origin:right bottom}.hero-ambient__panel--left{left:1.5%;top:27%}.hero-ambient__panel--right{right:1.5%;bottom:23%}.hero-ambient__orbit--one{width:92vw;height:36vw}.hero-ambient__orbit--two{width:80vw;height:30vw}.hero-ambient__grid{background-size:46px 30px}}
 @media(prefers-reduced-motion:reduce){.hero-ambient__image,.hero-ambient__glow,.hero-ambient__orbit,.hero-ambient__panel{animation:none}.hero-ambient__image{transform:none}.hero-ambient__grid{opacity:.18}}
+
+/* STACK CHAMBER — a living instrument panel behind the technology spines. */
+#stack{isolation:isolate;overflow:hidden;background:#080d18}
+.stack-cinema{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,rgba(28,62,91,.55),transparent 54%),#080d18}
+.stack-cinema__image{position:absolute;inset:-8%;background:linear-gradient(180deg,rgba(8,13,24,.58),rgba(8,13,24,.24) 42%,rgba(8,13,24,.9)),url("optimized/wakanda-ai.webp") center/cover no-repeat;filter:saturate(.72) contrast(1.16) brightness(.52);opacity:.92;transform:scale(1.06);animation:stackCameraDrift 22s ease-in-out infinite alternate}
+.stack-cinema__scan{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(54,211,153,.12) 49%,transparent 52%);background-size:100% 240px;mix-blend-mode:screen;opacity:.34;animation:stackScan 9s linear infinite}
+.stack-cinema__rings{position:absolute;border:1px solid rgba(245,196,96,.25);border-radius:50%;transform:rotate(-14deg);box-shadow:0 0 42px rgba(245,196,96,.06),inset 0 0 42px rgba(54,211,153,.06);animation:stackRing 28s linear infinite}
+.stack-cinema__rings--one{width:68vw;height:28vw;left:15%;top:20%}.stack-cinema__rings--two{width:40vw;height:16vw;left:30%;top:34%;border-color:rgba(54,211,153,.28);animation-duration:18s;animation-direction:reverse}
+.stack-cinema__signals{position:absolute;inset:0;width:100%;height:100%;opacity:.42;mix-blend-mode:screen}
+.stack-cinema__signals path{fill:none;stroke:#f5c460;stroke-width:1.2;stroke-dasharray:3 15;animation:signalFlow 12s linear infinite}
+.stack-cinema__signals path:nth-child(2){stroke:#36d399;animation-duration:16s;animation-direction:reverse}.stack-cinema__signals path:nth-child(3){stroke:#7dd3fc;animation-duration:20s}
+.stack-cinema__readout{position:absolute;left:5%;right:5%;bottom:4%;display:flex;justify-content:space-between;color:rgba(245,196,96,.62);font:700 .56rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em}
+#stack>.stack-bg{z-index:1!important;opacity:.12!important;mix-blend-mode:screen;pointer-events:none}
+#stack>.container{position:relative;z-index:2}
+#stack .stack-card{background:linear-gradient(145deg,rgba(10,20,34,.72),rgba(8,13,24,.48))!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:rgba(245,196,96,.24);box-shadow:0 18px 48px rgba(0,0,0,.22)}
+#stack .stack-card::after{opacity:.32!important;transition:opacity 300ms ease,transform 700ms cubic-bezier(.23,1,.32,1)}
+#stack .stack-card:hover::after,#stack .stack-card.open::after{opacity:.68!important;transform:scale(1.08)}
+#stack .stack-card-header{position:relative;z-index:2}
+#stack .stack-chip{transition:transform 180ms ease,background 180ms ease,border-color 180ms ease;color:#d8e5e2}
+#stack .stack-chip:hover{transform:translateX(5px);background:rgba(54,211,153,.16);border-color:rgba(54,211,153,.62);color:#fff}
+#stack .stack-card.open{transform:translateY(-8px);border-color:rgba(245,196,96,.7);box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 46px rgba(245,196,96,.11)}
+@keyframes stackCameraDrift{0%{transform:scale(1.06) translate3d(-1%,-.5%,0)}100%{transform:scale(1.12) translate3d(1%,1%,0)}}
+@keyframes stackScan{0%{background-position:0 -240px}100%{background-position:0 900px}}
+@keyframes stackRing{0%{transform:rotate(-14deg) translateX(-1%)}100%{transform:rotate(-4deg) translateX(1%)}}
+@keyframes signalFlow{0%{stroke-dashoffset:160}100%{stroke-dashoffset:-160}}
+@media(max-width:760px){.stack-cinema__image{filter:saturate(.64) contrast(1.1) brightness(.42)}.stack-cinema__rings--one{width:120vw;height:48vw;left:-10%;top:28%}.stack-cinema__rings--two{width:90vw;height:34vw;left:5%;top:42%}.stack-cinema__readout{font-size:.46rem;gap:.5rem}.stack-cinema__readout span{max-width:31%}}
+@media(prefers-reduced-motion:reduce){.stack-cinema__image,.stack-cinema__scan,.stack-cinema__rings,.stack-cinema__signals path{animation:none}.stack-cinema__scan{display:none}}
