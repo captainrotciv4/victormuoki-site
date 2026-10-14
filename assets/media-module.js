@@ -126,7 +126,7 @@
   const cinematicPlateSystem = () => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const plates = [...document.querySelectorAll('.media-hero, .media-stage, .feature-visual, .wakanda-gallery-card, .curated-video-card, .realm-stage, .bridge-bg, .engine-bg, .stack-bg, .case-bg, .cockpit-bg, .cred-bg, .blueprint-bg')];
+    const plates = [...document.querySelectorAll('.media-hero, .media-stage, .feature-visual, .wakanda-gallery-card, .curated-video-card, .realm-stage, .bridge-realistic-bg, .bridge-bg, .engine-bg, .stack-bg, .case-bg, .cockpit-bg, .cred-bg, .blueprint-bg')];
     plates.forEach((plate) => {
       plate.classList.add('cinematic-plate');
       plate.style.setProperty('--plate-progress', '0');
