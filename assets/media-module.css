@@ -288,3 +288,17 @@ model-viewer{touch-action:pan-y;contain:layout paint}
 @media (pointer:coarse){.engine-cycle__video{opacity:.58}.engine-cycle{inset:10% 2% 6%}}
 @media (max-width:760px){.scroll-world-bridge{height:74px}.engine-cycle{inset:15% 1% 5%;opacity:.42}.engine-cycle__label{font-size:.42rem;left:.6rem;bottom:.6rem}}
 @media (prefers-reduced-motion:reduce){.scroll-world-bridge span{animation:none}.engine-cycle__video{display:none}.engine-cycle{background:linear-gradient(135deg,rgba(245,196,96,.14),rgba(54,211,153,.06))}}
+
+
+/* IMAGE PLATE CONSISTENCY: every static visual gets the same editorial depth language. */
+@media (hover:hover) and (pointer:fine){
+  .cinematic-plate,.wakanda-stage{transition:transform 520ms cubic-bezier(.23,1,.32,1),border-color 260ms ease,box-shadow 360ms ease}
+  .cinematic-plate:hover,.wakanda-stage:hover{transform:translateY(-4px);border-color:rgba(245,196,96,.62);box-shadow:0 24px 70px rgba(0,0,0,.34),0 0 44px rgba(54,211,153,.1)}
+  .cinematic-plate:hover .cinematic-plate__media,.wakanda-stage:hover .wakanda-stage__image{transform:scale(1.045) translate3d(0,-.6%,0);filter:saturate(1.12) contrast(1.08) brightness(1.06)}
+  .cinematic-plate::after,.wakanda-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 24%,rgba(245,196,96,.16) 42%,transparent 58%);transform:translateX(-120%);opacity:0;transition:transform 700ms cubic-bezier(.23,1,.32,1),opacity 220ms ease}
+  .cinematic-plate:hover::after,.wakanda-stage:hover::after{transform:translateX(120%);opacity:1}
+}
+.cinematic-plate__media,.wakanda-stage__image{transition:transform 520ms cubic-bezier(.23,1,.32,1),filter 300ms ease}
+.touch-active.cinematic-plate,.touch-active.wakanda-stage{transform:translateY(-3px);border-color:rgba(245,196,96,.62);box-shadow:0 18px 52px rgba(0,0,0,.34),0 0 34px rgba(54,211,153,.1)}
+.touch-active.cinematic-plate .cinematic-plate__media,.touch-active.wakanda-stage .wakanda-stage__image{transform:scale(1.035);filter:saturate(1.1) contrast(1.06) brightness(1.04)}
+@media (prefers-reduced-motion:reduce){.cinematic-plate,.wakanda-stage,.cinematic-plate__media,.wakanda-stage__image{transition:none!important}.cinematic-plate:hover,.wakanda-stage:hover,.touch-active.cinematic-plate,.touch-active.wakanda-stage{transform:none}.cinematic-plate::after,.wakanda-stage::after{display:none}}
