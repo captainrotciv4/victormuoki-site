@@ -3269,11 +3269,12 @@
   }
 </style>
 <link rel="stylesheet" href="assets/media-module.css">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 <!-- INTERACTIVE MEDIA SYSTEM -->
 <div class="media-hero" aria-hidden="true">
-  <video class="media-hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-night.svg"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
+  <video class="media-hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/wakanda-hero.png"><source src="assets/video/wakanda-hero-loop.mp4" type="video/mp4"></video>
   <div class="media-orbit"></div><div class="media-signal"></div>
 </div>
 
@@ -4657,8 +4658,10 @@
 <!-- BIOCREDIT MEDIA JOURNEY -->
 <section class="container biocredit-media media-reveal" aria-labelledby="media-journey-title">
   <div class="biocredit-media__intro"><div><div class="section-tag">MEDIA SYSTEM / 01</div><h3 id="media-journey-title">Make the invisible rail visible.</h3></div><p>A compact, animated product story for BioCredit: from a consented biometric signal to portable reputation. This is the visual language for the next chapter of the platform.</p></div>
-  <div class="media-stage" aria-label="Interactive BioCredit identity visualization">
-    <video class="curated-media-video curated-media-video--stage" autoplay muted loop playsinline preload="none" poster="assets/concept-chain.jpg" aria-label="Animated gold blockchain visual for BioCredit"><source src="assets/video/biocredit-loop.mp4" type="video/mp4"></video>
+  <div class="media-stage wakanda-stage" aria-label="Interactive BioCredit identity visualization">
+    <video class="curated-media-video curated-media-video--stage" autoplay muted loop playsinline preload="none" poster="assets/wakanda-biometric.png" aria-label="Animated biometric visual for BioCredit"><source src="assets/video/biocredit-loop.mp4" type="video/mp4"></video>
+    <img class="wakanda-stage__image" src="assets/wakanda-biometric.png" alt="Copper biometric signal and emerald heartbeat orb in an Afrofuturist system visualization" loading="lazy">
+    <model-viewer class="wakanda-orb-model" src="assets/biometric-orb.glb" alt="Interactive 3D biometric data orb" camera-controls auto-rotate rotation-per-second="12deg" shadow-intensity="0.6" exposure="1.1" interaction-prompt="none"></model-viewer>
     <div class="media-stage__grid"></div><div class="media-stage__orb" aria-hidden="true"></div>
     <div class="media-stage__label">BIOCREDIT / NAIROBI / CONSENTED SIGNAL</div>
     <div class="media-stage__readout">ECG HASH: A3F9...B27E<br>RAIL STATUS: AUDITABLE</div>
@@ -4683,6 +4686,14 @@
   </div>
 </section>
 
+<section class="container wakanda-gallery media-reveal" aria-labelledby="wakanda-gallery-title">
+  <div class="biocredit-media__intro"><div><div class="section-tag">VISUAL SYSTEM / 03</div><h3 id="wakanda-gallery-title">Technology should feel alive.</h3></div><p>Realistic 3D studies make the architecture legible: a biometric signal, a learning system, and a creative world built from Nairobi outward.</p></div>
+  <div class="wakanda-gallery-grid">
+    <figure class="wakanda-gallery-card wakanda-gallery-card--wide"><img src="assets/wakanda-biometric.png" alt="Realistic 3D biometric finance visualization" loading="lazy"><figcaption><span>01 / BIOCREDIT</span><strong>Proof begins as a signal.</strong></figcaption></figure>
+    <figure class="wakanda-gallery-card"><img src="assets/wakanda-ai.png" alt="Realistic 3D AI data sculpture" loading="lazy"><figcaption><span>02 / AI + DATA</span><strong>Intelligence with a spine.</strong></figcaption></figure>
+    <figure class="wakanda-gallery-card"><img src="assets/wakanda-wozzo.png" alt="Realistic 3D creative world visual for Wozzo" loading="lazy"><figcaption><span>03 / WOZZO</span><strong>Worlds worth returning to.</strong></figcaption></figure>
+  </div>
+</section>
 <section id="biocredit-case" data-themed="case">
   <div class="case-bg" aria-hidden="true">
   <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">

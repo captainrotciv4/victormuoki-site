@@ -65,12 +65,13 @@
   const featureVisuals = () => {
     const cards = [...document.querySelectorAll('.projects-grid .project-card')].slice(0, 3);
     const labels = ['ECG IDENTITY / PRIVATE SIGNAL', 'PAYMENTS RAIL / RECONCILIATION', 'CREATIVE IP / WORLD BUILDING'];
+    const images = ['assets/wakanda-biometric.png', 'assets/wakanda-ai.png', 'assets/wakanda-wozzo.png'];
     cards.forEach((card, index) => {
       if (card.querySelector('.feature-visual')) return;
       const visual = document.createElement('div');
       visual.className = 'feature-visual media-reveal';
       visual.setAttribute('aria-hidden', 'true');
-      visual.innerHTML = `<div class="feature-visual__ring"></div><div class="feature-visual__bars">${Array.from({ length: 13 }, (_, i) => `<i style="--h:${28 + ((i * 17 + index * 13) % 65)}%"></i>`).join('')}</div><span class="media-stage__label">${labels[index]}</span>`;
+      visual.innerHTML = `<img class="feature-visual__image" src="${images[index]}" alt="" loading="lazy"><div class="feature-visual__veil"></div><div class="feature-visual__ring"></div><div class="feature-visual__bars">${Array.from({ length: 13 }, (_, i) => `<i style="--h:${28 + ((i * 17 + index * 13) % 65)}%"></i>`).join('')}</div><span class="media-stage__label">${labels[index]}</span>`;
       card.prepend(visual);
       card.dataset.mediaTilt = 'true';
     });
