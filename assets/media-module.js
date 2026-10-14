@@ -122,7 +122,69 @@
     });
   };
 
-  const boot = () => { featureVisuals(); particleField(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); };
+
+  const cinematicPlateSystem = () => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const plates = [...document.querySelectorAll('.media-hero, .media-stage, .feature-visual, .wakanda-gallery-card, .curated-video-card, .realm-stage, .bridge-bg, .engine-bg, .stack-bg, .case-bg, .cockpit-bg, .cred-bg, .blueprint-bg')];
+    plates.forEach((plate) => {
+      plate.classList.add('cinematic-plate');
+      plate.style.setProperty('--plate-progress', '0');
+      plate.style.setProperty('--plate-x', '0px');
+      plate.style.setProperty('--plate-y', '0px');
+      plate.querySelectorAll('img, video').forEach((media) => media.classList.add('cinematic-plate__media'));
+    });
+
+    const videos = [...document.querySelectorAll('video.cinematic-video')];
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        const video = entry.target;
+        if (reduce || document.hidden || !entry.isIntersecting) { video.pause(); return; }
+        video.play().catch(() => {});
+      }), { rootMargin: '120px 0px 120px 0px', threshold: 0.08 });
+      videos.forEach((video) => videoObserver.observe(video));
+    }
+
+    let raf = 0;
+    let pending = false;
+    const paint = () => {
+      pending = false;
+      const viewport = window.innerHeight || 1;
+      plates.forEach((plate) => {
+        const rect = plate.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const progress = Math.max(-1, Math.min(1, (viewport / 2 - center) / Math.max(viewport, rect.height)));
+        plate.style.setProperty('--plate-progress', progress.toFixed(3));
+      });
+    };
+    const requestPaint = () => { if (pending) return; pending = true; raf = requestAnimationFrame(paint); };
+    window.addEventListener('scroll', requestPaint, { passive: true });
+    window.addEventListener('resize', requestPaint, { passive: true });
+    requestPaint();
+
+    if (finePointer && !reduce) {
+      plates.forEach((plate) => {
+        plate.addEventListener('pointermove', (event) => {
+          const rect = plate.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width - .5) * 18;
+          const y = ((event.clientY - rect.top) / rect.height - .5) * 14;
+          plate.style.setProperty('--plate-x', `${x.toFixed(2)}px`);
+          plate.style.setProperty('--plate-y', `${y.toFixed(2)}px`);
+        }, { passive: true });
+        plate.addEventListener('pointerleave', () => {
+          plate.style.setProperty('--plate-x', '0px');
+          plate.style.setProperty('--plate-y', '0px');
+        }, { passive: true });
+      });
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) videos.forEach((video) => video.pause());
+      else if (!reduce) videos.forEach((video) => { if (video.closest('.cinematic-plate')) video.play().catch(() => {}); });
+    }, { passive: true });
+  };
+
+  const boot = () => { featureVisuals(); particleField(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); cinematicPlateSystem(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
 })();
