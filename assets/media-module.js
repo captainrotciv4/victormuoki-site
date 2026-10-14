@@ -178,6 +178,13 @@
     if (!stage) return;
     const model = stage.querySelector('model-viewer');
     const open = stage.querySelector('[data-engine-open]');
+    const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (model && coarse) {
+      // Let the document own vertical gestures on phones/tablets; desktop keeps orbit controls.
+      model.removeAttribute('camera-controls');
+      model.setAttribute('interaction-prompt', 'none');
+      model.setAttribute('touch-action', 'pan-y');
+    }
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) stage.classList.add('is-active');

@@ -354,3 +354,20 @@ section:not(.hero)>*,.quote-band>*{position:relative;z-index:1}
   .curated-video-card.touch-active video{transform:scale(1.045);filter:saturate(1.12) contrast(1.08) brightness(1.05)}
 }
 @media (prefers-reduced-motion:reduce){.curated-video-card.touch-active{transform:none!important}.curated-video-card video{transition:none!important}}
+
+
+/* MOTION STUDIES — the cards breathe and travel with the page on every device. */
+.curated-video-card{--card-depth:0px;position:relative;overflow:hidden;will-change:transform}
+.curated-video-card::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(112deg,transparent 28%,rgba(245,196,96,.16) 44%,rgba(54,211,153,.08) 50%,transparent 63%);transform:translateX(-125%);opacity:.42;animation:cardLightSweep 8s cubic-bezier(.23,1,.32,1) infinite}
+.curated-video-card:nth-child(2)::after{animation-delay:-2s}.curated-video-card:nth-child(3)::after{animation-delay:-4s}.curated-video-card:nth-child(4)::after{animation-delay:-6s}
+.curated-video-card video{transform:translate3d(0,calc(var(--plate-progress,0) * -10px),0) scale(1.025);filter:saturate(.94) contrast(1.08);transition:transform 560ms cubic-bezier(.23,1,.32,1),filter 300ms ease}
+@keyframes cardLightSweep{0%,18%{transform:translateX(-125%);opacity:0}34%{opacity:.42}58%,100%{transform:translateX(125%);opacity:0}}
+@media (hover:hover) and (pointer:fine){.curated-video-card:hover::after{animation-duration:3.2s;opacity:.7}.curated-video-card:hover video{transform:translate3d(0,calc(var(--plate-progress,0) * -10px),0) scale(1.09);filter:saturate(1.18) contrast(1.12) brightness(1.08)}}
+@media (pointer:coarse){.curated-video-card::after{animation-duration:11s;opacity:.28}}
+@media (prefers-reduced-motion:reduce){.curated-video-card::after{animation:none;opacity:0}.curated-video-card video{transform:none;transition:none}}
+
+/* ENGINE SCROLL SAFETY — vertical gestures belong to the page on touch devices. */
+.engine-stage{overscroll-behavior:contain}
+.engine-model{touch-action:pan-y;overscroll-behavior:auto}
+@media (hover:none),(pointer:coarse){.engine-model{pointer-events:none}.engine-stage__model{touch-action:pan-y}}
+@media (hover:hover) and (pointer:fine){.engine-model{pointer-events:auto}}
