@@ -161,7 +161,7 @@
     window.addEventListener('resize', setVh, { passive: true });
     window.addEventListener('orientationchange', () => setTimeout(setVh, 150), { passive: true });
     if (!coarse) return;
-    document.querySelectorAll('[data-hover], .wakanda-gallery-card, .curated-video-card, .project-card, .stack-card, .garage-item, .cred-card, .skill-card, .cinematic-plate, .wakanda-stage').forEach((el) => {
+    document.querySelectorAll('[data-hover], .wakanda-gallery-card, .curated-video-card, .project-card, .stack-card, .garage-item, .cred-card, .skill-card, .cinematic-plate, .wakanda-stage, .principle, .timeline-item, .chain-block, .media-step').forEach((el) => {
       el.addEventListener('pointerdown', () => {
         el.classList.add('touch-active');
         window.setTimeout(() => el.classList.remove('touch-active'), 950);

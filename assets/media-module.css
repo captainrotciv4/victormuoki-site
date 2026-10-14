@@ -321,3 +321,17 @@ model-viewer{touch-action:pan-y;contain:layout paint}
 .quote-band>.ambient-orbit{right:18%;top:12%;opacity:.58}
 @media (max-width:760px){.has-ambient-world>.ambient-particles{opacity:.42}.has-ambient-world>.ambient-orbit{width:44vw;height:32vw;right:3%;top:12%;opacity:.5}.has-ambient-world>.ambient-orbit span{animation-duration:14s}.has-ambient-world>.ambient-orbit span:nth-child(2){animation-duration:19s}}
 @media (prefers-reduced-motion:reduce){.has-ambient-world>.ambient-orbit{transform:none;transition:none}.has-ambient-world>.ambient-orbit span{animation:none}.has-ambient-world>.ambient-particles{display:none}}
+
+
+/* CONTINUITY PASS: shared horizon light prevents hard dark breaks between chapters. */
+section:not(.hero),.quote-band{position:relative;isolation:isolate}
+section:not(.hero)::before,.quote-band::before{content:"";position:absolute;z-index:0;left:0;right:0;top:0;height:clamp(72px,9vw,140px);pointer-events:none;background:linear-gradient(180deg,rgba(11,17,32,.08),transparent),radial-gradient(ellipse at 50% 0%,rgba(245,196,96,.09),transparent 58%),linear-gradient(90deg,transparent,rgba(54,211,153,.05) 32%,rgba(245,196,96,.06) 68%,transparent);opacity:.9}
+section:not(.hero)::after,.quote-band::after{content:"";position:absolute;z-index:0;left:8%;right:8%;top:clamp(70px,8.7vw,136px);height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(245,196,96,.34) 20%,rgba(54,211,153,.22) 50%,rgba(245,196,96,.34) 80%,transparent);box-shadow:0 0 24px rgba(245,196,96,.12);opacity:.72}
+section:not(.hero)>*,.quote-band>*{position:relative;z-index:1}
+/* Shared editorial interaction for previously flat card families. */
+@media (hover:hover) and (pointer:fine){
+  .principle,.timeline-item,.chain-block,.media-step{transition:transform 220ms cubic-bezier(.23,1,.32,1),border-color 220ms ease,box-shadow 220ms ease,background-color 220ms ease}
+  .principle:hover,.timeline-item:hover,.chain-block:hover,.media-step:hover{transform:translateY(-4px);border-color:rgba(245,196,96,.56);box-shadow:0 16px 42px rgba(0,0,0,.26),0 0 30px rgba(54,211,153,.08);background-color:rgba(245,196,96,.045)}
+}
+.touch-active.principle,.touch-active.timeline-item,.touch-active.chain-block,.touch-active.media-step{transform:translateY(-3px);border-color:rgba(245,196,96,.56);box-shadow:0 12px 34px rgba(0,0,0,.24),0 0 26px rgba(54,211,153,.08)}
+@media (prefers-reduced-motion:reduce){section:not(.hero)::after,.quote-band::after{box-shadow:none}.principle,.timeline-item,.chain-block,.media-step{transition:none!important}.principle:hover,.timeline-item:hover,.chain-block:hover,.media-step:hover,.touch-active.principle,.touch-active.timeline-item,.touch-active.chain-block,.touch-active.media-step{transform:none}}
