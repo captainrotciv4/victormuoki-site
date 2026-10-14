@@ -223,3 +223,48 @@ html[data-media-paused="true"] .media-orbit,html[data-media-paused="true"] .medi
 @keyframes signalFlow{0%{stroke-dashoffset:160}100%{stroke-dashoffset:-160}}
 @media(max-width:760px){.stack-cinema__image{filter:saturate(.64) contrast(1.1) brightness(.42)}.stack-cinema__rings--one{width:120vw;height:48vw;left:-10%;top:28%}.stack-cinema__rings--two{width:90vw;height:34vw;left:5%;top:42%}.stack-cinema__readout{font-size:.46rem;gap:.5rem}.stack-cinema__readout span{max-width:31%}}
 @media(prefers-reduced-motion:reduce){.stack-cinema__image,.stack-cinema__scan,.stack-cinema__rings,.stack-cinema__signals path{animation:none}.stack-cinema__scan{display:none}}
+
+/* RESPONSIVE CINEMATIC SAFETY — intentional touch states, iOS viewport handling, and lighter small-screen motion. */
+:root{--app-vh:1vh}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(68px + env(safe-area-inset-top))}
+body{padding-bottom:env(safe-area-inset-bottom)}
+nav.top{padding-top:max(12px,env(safe-area-inset-top))}
+.hero{min-height:100svh;min-height:calc(var(--app-vh) * 100)}
+model-viewer{touch-action:pan-y;contain:layout paint}
+.touch-active{border-color:rgba(245,196,96,.72)!important;box-shadow:0 18px 52px rgba(0,0,0,.34),0 0 36px rgba(54,211,153,.12)!important}
+[data-pointer="coarse"] .cursor-dot,[data-pointer="coarse"] .cursor-ring,[data-pointer="coarse"] .cursor-cross,[data-pointer="coarse"] #cursor-spotlight{display:none!important}
+[data-pointer="coarse"] .hero-ambient__panel{opacity:.56}
+[data-pointer="coarse"] .stack-card:hover{transform:none}
+@media (pointer:coarse){
+  .hero-ambient__image,.stack-cinema__image,.bridge-realistic-bg__image{animation:none;transform:none}
+  .hero-ambient__scan,.stack-cinema__scan{opacity:.16}
+  .engine-stage::before{animation-duration:18s}
+  .wakanda-gallery-card:hover,.curated-video-card:hover,.project-card:hover,.cred-card:hover,.skill-card:hover,.pill-item:hover{transform:none}
+  .wakanda-gallery-card.touch-active img,.curated-video-card.touch-active video,.project-card.touch-active .feature-visual__image{transform:scale(1.045)}
+}
+@media (max-width:1024px){
+  .container{width:min(92vw,980px)}
+  .hero-content{width:min(88vw,900px)}
+  .media-hero__video{opacity:.45}
+  .cinematic-plate__media{transform:none!important}
+  .engine-stage{margin-top:2rem}
+}
+@media (max-width:760px){
+  nav.top{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+  .hero{min-height:calc(var(--app-vh) * 100);padding-bottom:env(safe-area-inset-bottom)}
+  .hero-ambient__image{opacity:.72}
+  .hero-ambient__panel{display:none}
+  .hero-ambient__grid{opacity:.14}
+  .section-title{max-width:95vw}
+  .section-lead{max-width:92vw}
+  .stack-cinema__signals{opacity:.2}
+  .stack-cinema__readout{bottom:calc(1rem + env(safe-area-inset-bottom))}
+  .engine-stage{margin-bottom:2.5rem}
+  .engine-open{min-height:44px;padding:.8rem 1rem}
+  .btn,.view-link,a[data-hover],button{min-height:44px}
+}
+@supports (-webkit-touch-callout:none){
+  .hero{min-height:-webkit-fill-available}
+  .media-hero__video{transform:translateZ(0)}
+  .cinematic-plate,.engine-stage,.stack-card,.project-card{backface-visibility:hidden}
+}

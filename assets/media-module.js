@@ -123,6 +123,48 @@
   };
 
 
+
+
+  const responsivePolish = () => {
+    const root = document.documentElement;
+    const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    root.dataset.pointer = coarse ? 'coarse' : 'fine';
+    const setVh = () => root.style.setProperty('--app-vh', `${window.innerHeight * 0.01}px`);
+    setVh();
+    window.addEventListener('resize', setVh, { passive: true });
+    window.addEventListener('orientationchange', () => setTimeout(setVh, 150), { passive: true });
+    if (!coarse) return;
+    document.querySelectorAll('[data-hover], .wakanda-gallery-card, .curated-video-card, .project-card, .stack-card, .garage-item, .cred-card, .skill-card').forEach((el) => {
+      el.addEventListener('pointerdown', () => {
+        el.classList.add('touch-active');
+        window.setTimeout(() => el.classList.remove('touch-active'), 950);
+      }, { passive: true });
+    });
+    document.querySelectorAll('video').forEach((video) => {
+      video.setAttribute('playsinline', '');
+      if (!video.classList.contains('media-hero__video')) video.preload = 'none';
+    });
+  };
+
+  const engineStage = () => {
+    const stage = document.querySelector('[data-engine-stage]');
+    if (!stage) return;
+    const model = stage.querySelector('model-viewer');
+    const open = stage.querySelector('[data-engine-open]');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) stage.classList.add('is-active');
+      }, { threshold: 0.28 });
+      observer.observe(stage);
+    } else stage.classList.add('is-active');
+    open?.addEventListener('click', () => {
+      const expanded = stage.classList.toggle('is-open');
+      open.setAttribute('aria-expanded', String(expanded));
+      open.innerHTML = expanded ? 'Close engine view <span>↙</span>' : 'Open engine view <span>↗</span>';
+      if (expanded) model?.focus({ preventScroll: true });
+    });
+  };
+
   const cinematicPlateSystem = () => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -184,7 +226,7 @@
     }, { passive: true });
   };
 
-  const boot = () => { featureVisuals(); particleField(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); cinematicPlateSystem(); };
+  const boot = () => { featureVisuals(); particleField(); railActivation(); evidenceLayer(); philosophyMotion(); reveal(); tilt(); modal(); pauseWhenHidden(); responsivePolish(); engineStage(); cinematicPlateSystem(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
 })();
