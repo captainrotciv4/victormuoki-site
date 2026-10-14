@@ -3686,6 +3686,16 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <canvas id="hero-canvas"></canvas>
+  <div class="hero-ambient" aria-hidden="true">
+    <div class="hero-ambient__image"></div>
+    <div class="hero-ambient__glow hero-ambient__glow--gold"></div>
+    <div class="hero-ambient__glow hero-ambient__glow--green"></div>
+    <div class="hero-ambient__orbit hero-ambient__orbit--one"></div>
+    <div class="hero-ambient__orbit hero-ambient__orbit--two"></div>
+    <div class="hero-ambient__panel hero-ambient__panel--left"><span>01</span><strong>BIOMETRICS</strong><small>PRIVATE SIGNAL / VERIFIED</small></div>
+    <div class="hero-ambient__panel hero-ambient__panel--right"><span>02</span><strong>AI × FINANCE</strong><small>ETHICAL RAIL / LIVE BUILD</small></div>
+    <div class="hero-ambient__grid"></div>
+  </div>
   <div class="hero-motes" aria-hidden="true">
     <span></span><span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -4417,6 +4427,19 @@
 
   <div class="container">
     <div class="section-tag reveal">02 · The Engine</div>
+    <div class="engine-stage reveal" data-engine-stage>
+      <div class="engine-stage__copy">
+        <span class="engine-stage__eyebrow">M279 / V12 ARCHITECTURE</span>
+        <strong>The machine behind the metaphor.</strong>
+        <p>Scroll into the system. Drag to orbit the engine. Every project below is a working part of the same build.</p>
+        <button class="engine-open" type="button" data-engine-open aria-expanded="false">Open engine view <span>↗</span></button>
+      </div>
+      <div class="engine-stage__model">
+        <div class="engine-stage__halo" aria-hidden="true"></div>
+        <model-viewer class="engine-model" src="assets/engine-m279.glb" alt="Interactive 3D render of a V12 engine" camera-controls auto-rotate rotation-per-second="8deg" shadow-intensity="1" exposure="1.05" environment-image="neutral" interaction-prompt="auto" loading="lazy"></model-viewer>
+      </div>
+      <div class="engine-stage__readout" aria-hidden="true"><span>TORQUE / OUTPUT</span><span>V12 / TWIN TURBO</span><span>NAIROBI / SYSTEMS</span></div>
+    </div>
     <h2 class="section-title reveal">Featured work.</h2>
     <p class="section-lead reveal reveal-delay-1">Three projects across personal IP, employer implementation, and creative ventures. Each attributed honestly.</p>
     <div class="projects-grid">

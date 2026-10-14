@@ -150,3 +150,49 @@ html[data-media-paused="true"] .media-orbit,html[data-media-paused="true"] .medi
 .hero .btn-ghost:hover{border-color:#36d399;color:#36d399;background:rgba(54,211,153,.06)}
 @media(max-width:700px){.hero-content{width:88vw}.hero h1{text-align:left}.hero .tagline,.hero .subline{ text-align:left}.hero::after{inset:5% 4%}.bridge-realistic-bg__image{object-position:center center;filter:saturate(.78) contrast(1.08) brightness(.5)}}
 @media(prefers-reduced-motion:reduce){.bridge-realistic-bg__image{transform:none!important}.hero::after{opacity:.35}.wakanda-gallery-card:hover,.curated-video-card:hover,.project-card:hover,.cred-card:hover,.skill-card:hover,.pill-item:hover{transform:none}}
+
+/* ENGINE STAGE — the metaphor becomes an explorable 3D object. */
+.engine-stage{position:relative;display:grid;grid-template-columns:minmax(220px,.7fr) minmax(360px,1.3fr);align-items:center;gap:2rem;min-height:430px;margin:2.5rem 0 4rem;padding:2rem 2.25rem;border:1px solid rgba(245,196,96,.24);background:radial-gradient(circle at 68% 48%,rgba(245,196,96,.14),transparent 28%),linear-gradient(135deg,rgba(7,11,18,.86),rgba(11,19,30,.56));overflow:hidden;isolation:isolate;opacity:0;transform:translateY(28px);transition:opacity 700ms cubic-bezier(.23,1,.32,1),transform 700ms cubic-bezier(.23,1,.32,1),border-color 300ms ease,box-shadow 300ms ease}
+.engine-stage.is-active{opacity:1;transform:none}
+.engine-stage::before{content:"";position:absolute;inset:-40%;z-index:-1;background:linear-gradient(115deg,transparent 38%,rgba(245,196,96,.12) 49%,rgba(54,211,153,.08) 52%,transparent 64%);transform:translateX(-12%);animation:engineSweep 10s cubic-bezier(.22,.8,.2,1) infinite}
+.engine-stage__copy{position:relative;z-index:2;align-self:end;padding-bottom:2rem;max-width:300px}
+.engine-stage__eyebrow{display:block;margin-bottom:.9rem;color:#f5c460;font:700 .66rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em}
+.engine-stage__copy strong{display:block;color:#f4f7fb;font-size:clamp(1.5rem,3vw,2.8rem);line-height:.98;letter-spacing:-.04em}
+.engine-stage__copy p{color:#aebbb9;font-size:.85rem;line-height:1.6;margin:1rem 0 1.3rem}
+.engine-open{border:1px solid rgba(54,211,153,.64);background:rgba(54,211,153,.07);color:#b8f4dd;padding:.7rem .9rem;cursor:pointer;font:700 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;transition:background 180ms ease,transform 180ms ease,border-color 180ms ease}
+.engine-open:hover{background:rgba(54,211,153,.18);border-color:#f5c460;transform:translateY(-2px)}
+.engine-stage__model{position:relative;z-index:1;min-height:390px;display:grid;place-items:center}
+.engine-model{width:100%;height:410px;--poster-color:transparent;filter:drop-shadow(0 26px 34px rgba(0,0,0,.5));opacity:.92;transform:scale(.9) translateY(18px);transition:transform 900ms cubic-bezier(.23,1,.32,1),opacity 700ms ease,filter 300ms ease}
+.engine-stage.is-active .engine-model{opacity:1;transform:scale(1) translateY(0)}
+.engine-stage.is-open{grid-template-columns:.55fr 1.45fr;min-height:560px;border-color:rgba(245,196,96,.62);box-shadow:0 30px 90px rgba(0,0,0,.42),0 0 60px rgba(54,211,153,.09)}
+.engine-stage.is-open .engine-model{height:530px;transform:scale(1.08)}
+.engine-stage__halo{position:absolute;inset:12% 4%;border-radius:50%;background:radial-gradient(ellipse,rgba(245,196,96,.18),rgba(54,211,153,.06) 34%,transparent 68%);filter:blur(12px);animation:enginePulse 5s ease-in-out infinite}
+.engine-stage__readout{position:absolute;left:2.25rem;right:2.25rem;bottom:1rem;z-index:2;display:flex;justify-content:space-between;color:rgba(245,196,96,.56);font:700 .58rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em}
+@keyframes engineSweep{0%,18%{transform:translateX(-16%);opacity:.1}48%{opacity:.75}78%,100%{transform:translateX(16%);opacity:.12}}
+@keyframes enginePulse{0%,100%{opacity:.46;transform:scale(.94)}50%{opacity:.9;transform:scale(1.05)}}
+@media (hover:hover) and (pointer:fine){.engine-stage:hover{border-color:rgba(245,196,96,.56);box-shadow:0 24px 70px rgba(0,0,0,.32),0 0 50px rgba(245,196,96,.08)}.engine-stage:hover .engine-model{filter:drop-shadow(0 30px 42px rgba(245,196,96,.2)) drop-shadow(0 14px 22px rgba(0,0,0,.58))}}
+@media(max-width:760px){.engine-stage,.engine-stage.is-open{grid-template-columns:1fr;min-height:620px;padding:1.25rem}.engine-stage__copy{max-width:none;align-self:start;padding-bottom:0}.engine-stage__model{min-height:350px}.engine-model,.engine-stage.is-open .engine-model{height:370px;transform:scale(1)}.engine-stage__readout{left:1.25rem;right:1.25rem;bottom:.8rem;font-size:.48rem;gap:.4rem}.engine-stage__readout span{max-width:30%}}
+@media(prefers-reduced-motion:reduce){.engine-stage{opacity:1;transform:none;transition:none}.engine-stage::before,.engine-stage__halo{animation:none}.engine-model,.engine-stage.is-open .engine-model{transform:none;transition:none}.engine-open:hover{transform:none}}
+
+/* HERO ATMOSPHERE — give the opening frame a world, not an empty backdrop. */
+.hero{isolation:isolate;overflow:hidden}
+.hero-ambient{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.hero-ambient__image{position:absolute;inset:-6%;background:linear-gradient(90deg,rgba(5,7,11,.82) 0%,rgba(5,7,11,.34) 47%,rgba(5,7,11,.58) 100%),url("optimized/wakanda-hero.webp") center/cover no-repeat;filter:saturate(.74) contrast(1.08) brightness(.54);opacity:.86;transform:scale(1.035);animation:heroCameraDrift 18s cubic-bezier(.22,.8,.2,1) infinite alternate}
+.hero-ambient__glow{position:absolute;border-radius:50%;filter:blur(50px);mix-blend-mode:screen;animation:heroGlowFloat 10s ease-in-out infinite alternate}
+.hero-ambient__glow--gold{width:38vw;height:38vw;right:4%;bottom:-18%;background:rgba(245,196,96,.16)}
+.hero-ambient__glow--green{width:28vw;height:28vw;left:-6%;top:18%;background:rgba(54,211,153,.12);animation-delay:-3s}
+.hero-ambient__orbit{position:absolute;border:1px solid rgba(245,196,96,.24);border-radius:50%;transform:rotate(-20deg);animation:heroOrbit 24s linear infinite}
+.hero-ambient__orbit--one{width:62vw;height:25vw;right:-9%;top:18%}
+.hero-ambient__orbit--two{width:46vw;height:18vw;left:-8%;bottom:12%;border-color:rgba(54,211,153,.2);animation-duration:30s;animation-direction:reverse}
+.hero-ambient__panel{position:absolute;display:grid;gap:.24rem;width:180px;padding:.7rem .82rem;border-left:1px solid rgba(245,196,96,.65);background:linear-gradient(90deg,rgba(6,11,17,.62),rgba(6,11,17,.08));color:rgba(245,196,96,.7);font:700 .56rem/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;opacity:.7;animation:heroPanelFloat 7s ease-in-out infinite alternate}
+.hero-ambient__panel span{color:#36d399;font-size:.58rem}.hero-ambient__panel strong{color:#f4f7fb;font-size:.66rem}.hero-ambient__panel small{color:rgba(201,215,209,.64);font-size:.46rem;letter-spacing:.11em}
+.hero-ambient__panel--left{left:4.5%;top:32%}.hero-ambient__panel--right{right:4.5%;bottom:28%;animation-delay:-2s}
+.hero-ambient__grid{position:absolute;left:0;right:0;bottom:-26%;height:56%;opacity:.32;background:linear-gradient(rgba(245,196,96,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(245,196,96,.12) 1px,transparent 1px);background-size:72px 42px;transform:perspective(460px) rotateX(58deg);transform-origin:center top;mask-image:linear-gradient(180deg,transparent,black 28%,transparent 92%)}
+.hero::before{background:linear-gradient(90deg,rgba(5,7,11,.76) 0%,transparent 42%,rgba(5,7,11,.34) 100%),linear-gradient(180deg,rgba(5,7,11,.12),transparent 44%,rgba(5,7,11,.92) 100%);mix-blend-mode:normal}
+.hero::after{z-index:2}
+@keyframes heroCameraDrift{0%{transform:scale(1.035) translate3d(-1%,0,0)}100%{transform:scale(1.09) translate3d(1%, -1%,0)}}
+@keyframes heroGlowFloat{0%{transform:translate3d(-2%,2%,0) scale(.94);opacity:.42}100%{transform:translate3d(3%,-3%,0) scale(1.06);opacity:.86}}
+@keyframes heroOrbit{0%{transform:rotate(-20deg) translateX(-2%)}100%{transform:rotate(-12deg) translateX(2%)}}
+@keyframes heroPanelFloat{0%{transform:translateY(0);opacity:.5}100%{transform:translateY(-9px);opacity:.82}}
+@media(max-width:700px){.hero-ambient__panel{width:142px;transform:scale(.86);transform-origin:left top}.hero-ambient__panel--right{transform-origin:right bottom}.hero-ambient__panel--left{left:1.5%;top:27%}.hero-ambient__panel--right{right:1.5%;bottom:23%}.hero-ambient__orbit--one{width:92vw;height:36vw}.hero-ambient__orbit--two{width:80vw;height:30vw}.hero-ambient__grid{background-size:46px 30px}}
+@media(prefers-reduced-motion:reduce){.hero-ambient__image,.hero-ambient__glow,.hero-ambient__orbit,.hero-ambient__panel{animation:none}.hero-ambient__image{transform:none}.hero-ambient__grid{opacity:.18}}
