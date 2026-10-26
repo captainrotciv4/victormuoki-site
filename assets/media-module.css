@@ -390,3 +390,32 @@ html{scroll-behavior:auto}
 /* phones/tablets: keep the loops visible (they were dimmed to .12) so cards read as alive */
 @media (max-width:700px){.curated-media-video{opacity:.5}.curated-video-card video{opacity:.9}}
 .wakanda-gallery-card:not(.in-view) img,.curated-video-card:not(.in-view) video{animation-play-state:paused}
+
+/* ===== v3: mobile polish (Oct 26) ===== */
+/* 1. No more edge strips: breathe animation can never reveal the card edge */
+@keyframes card-breathe{0%{scale:1.08;translate:0 0}100%{scale:1.14;translate:-1% -1.2%}}
+/* 2. Caption scrim lives on the caption itself (the ::after on the card is used by light sweeps) */
+.curated-video-card figcaption,.wakanda-gallery-card figcaption{left:0!important;right:0!important;bottom:0!important;padding:3.2rem 1.1rem 1rem;background:linear-gradient(180deg,transparent 0,rgba(5,7,11,.78) 48%,rgba(5,7,11,.96) 100%);text-shadow:0 2px 12px rgba(0,0,0,.85)}
+.curated-video-card figcaption span,.wakanda-gallery-card figcaption span{white-space:normal;overflow-wrap:anywhere}
+@media (max-width:700px){
+  /* 3. Centre everything: drop the left gutter + gold rail + diamonds */
+  .curated-video-grid{padding-left:0!important;gap:16px!important}
+  .curated-video-grid::before,.curated-video-card::before{display:none!important}
+  .curated-video-card,.wakanda-gallery-card{width:100%;margin-inline:auto}
+  .curated-video-card video,.wakanda-gallery-card img{width:100%!important;height:100%!important;max-width:none}
+  .curated-video-card figcaption span{font-size:10px;letter-spacing:.12em}
+  .curated-video-card figcaption strong,.wakanda-gallery-card figcaption strong{font-size:clamp(18px,5.4vw,24px)}
+  /* 4. Kill dead glow band above section headings */
+  .curated-video-rail{padding-top:clamp(56px,12vw,84px)!important}
+  .wakanda-gallery,.curated-video-rail{margin-top:0!important}
+  /* 5. Header: logo / socials / burger no longer collide */
+  nav.top{gap:12px;padding:14px 16px!important;background:rgba(7,9,15,.88);backdrop-filter:blur(12px)}
+  nav.top .nav-socials{gap:10px}
+  .nav-burger{flex:0 0 34px;margin-left:6px}
+  /* 6. BioCredit chain blocks: compact, no dead space, + button clear of EPOCH */
+  #biocredit-case .chain-block{min-height:0!important;padding:18px 16px!important;margin:0 auto!important;width:100%!important;max-width:none!important}
+  #biocredit-case .chain-block-tag{padding-right:44px}
+  #biocredit-case .chain-block[data-expandable]>.expand-btn{top:12px;right:12px}
+  #biocredit-case .chain-block::before{inset:0!important}
+  #biocredit-case .chain-viz{gap:14px!important;padding-inline:0!important}
+}
