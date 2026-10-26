@@ -371,3 +371,22 @@ section:not(.hero)>*,.quote-band>*{position:relative;z-index:1}
 .engine-model{touch-action:pan-y;overscroll-behavior:auto}
 @media (hover:none),(pointer:coarse){.engine-model{pointer-events:none}.engine-stage__model{touch-action:pan-y}}
 @media (hover:hover) and (pointer:fine){.engine-model{pointer-events:auto}}
+
+/* ===== v2: continuous life for every card (all screen sizes), scroll-safe ===== */
+.engine-model,.wakanda-orb-model,model-viewer{touch-action:pan-y}
+html{scroll-behavior:auto}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .wakanda-gallery-card.in-view img,.curated-video-card.in-view video,.project-card.in-view .feature-visual__image{animation:card-breathe 16s ease-in-out infinite alternate;will-change:scale,translate}
+  .wakanda-gallery-card:nth-child(2n).in-view img,.curated-video-card:nth-child(2n).in-view video{animation-duration:20s;animation-direction:alternate-reverse}
+  .wakanda-gallery-card.in-view::before,.curated-video-card.in-view::before{animation:cinematic-light-pass 11s cubic-bezier(.22,.8,.2,1) infinite}
+  .curated-video-card:nth-child(2).in-view::before,.wakanda-gallery-card:nth-child(2).in-view::before{animation-delay:2.2s}
+  .curated-video-card:nth-child(3).in-view::before,.wakanda-gallery-card:nth-child(3).in-view::before{animation-delay:4.4s}
+  .curated-video-card:nth-child(4).in-view::before{animation-delay:6.6s}
+  .wakanda-gallery-card.in-view::after,.curated-video-card.in-view::after{animation:card-edge-pulse 7s ease-in-out infinite alternate}
+}
+@keyframes card-breathe{0%{scale:1.02;translate:0 0}100%{scale:1.085;translate:-1.2% -1.6%}}
+@keyframes card-edge-pulse{0%{opacity:.92}100%{opacity:1}}
+/* phones/tablets: keep the loops visible (they were dimmed to .12) so cards read as alive */
+@media (max-width:700px){.curated-media-video{opacity:.5}.curated-video-card video{opacity:.9}}
+.wakanda-gallery-card:not(.in-view) img,.curated-video-card:not(.in-view) video{animation-play-state:paused}

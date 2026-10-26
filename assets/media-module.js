@@ -179,12 +179,19 @@
     const model = stage.querySelector('model-viewer');
     const open = stage.querySelector('[data-engine-open]');
     const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-    if (model && coarse) {
-      // Let the document own vertical gestures on phones/tablets; desktop keeps orbit controls.
-      model.removeAttribute('camera-controls');
-      model.setAttribute('interaction-prompt', 'none');
-      model.setAttribute('touch-action', 'pan-y');
-    }
+    /* Every 3D viewer (engine + biometric orb): wheel-zoom is off so the mouse wheel
+       always scrolls the page; touch devices lose camera-controls entirely and keep
+       vertical pan. Desktop keeps drag-to-orbit. */
+    document.querySelectorAll('model-viewer').forEach((viewer) => {
+      viewer.setAttribute('disable-zoom', '');
+      viewer.setAttribute('touch-action', 'pan-y');
+      viewer.setAttribute('loading', 'lazy');
+      viewer.setAttribute('reveal', 'auto');
+      if (coarse) {
+        viewer.removeAttribute('camera-controls');
+        viewer.setAttribute('interaction-prompt', 'none');
+      }
+    });
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) stage.classList.add('is-active');
@@ -221,12 +228,21 @@
       videos.forEach((video) => videoObserver.observe(video));
     }
 
+    const visible = new Set();
+    if ('IntersectionObserver' in window) {
+      const plateObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+        if (entry.isIntersecting) visible.add(entry.target); else visible.delete(entry.target);
+      }), { rootMargin: '80px 0px 80px 0px', threshold: 0 });
+      plates.forEach((plate) => plateObserver.observe(plate));
+    } else plates.forEach((plate) => { plate.classList.add('in-view'); visible.add(plate); });
+
     let raf = 0;
     let pending = false;
     const paint = () => {
       pending = false;
       const viewport = window.innerHeight || 1;
-      plates.forEach((plate) => {
+      visible.forEach((plate) => {
         const rect = plate.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
         const progress = Math.max(-1, Math.min(1, (viewport / 2 - center) / Math.max(viewport, rect.height)));
