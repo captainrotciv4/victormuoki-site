@@ -68,7 +68,7 @@ html[data-media-paused="true"] .media-orbit,html[data-media-paused="true"] .medi
 
 /* Original Afrofuturist visual system: obsidian, copper, emerald, cyan. */
 :root{--wakanda-copper:#e9b95d;--wakanda-emerald:#36d399;--wakanda-cyan:#55d6d0;--wakanda-obsidian:#05070b}
-.media-hero::before{background:linear-gradient(90deg,rgba(5,7,11,.92) 0%,rgba(5,7,11,.55) 46%,rgba(5,7,11,.12) 100%),url("wakanda-hero.png") center/cover no-repeat;opacity:.82}
+.media-hero::before{background:linear-gradient(90deg,rgba(5,7,11,.92) 0%,rgba(5,7,11,.55) 46%,rgba(5,7,11,.12) 100%),url("optimized/wakanda-hero.webp") center/cover no-repeat;opacity:.82}
 .media-hero::after{background:radial-gradient(circle at 72% 28%,rgba(54,211,153,.13),transparent 26%),radial-gradient(circle at 56% 56%,rgba(85,214,208,.08),transparent 34%),linear-gradient(180deg,transparent 58%,rgba(5,7,11,.98));opacity:.72}
 .media-hero__video{opacity:.3;filter:saturate(.72) contrast(1.08);mix-blend-mode:screen}
 .wakanda-stage{background:radial-gradient(circle at 78% 42%,rgba(54,211,153,.14),transparent 28%),#05070b}
