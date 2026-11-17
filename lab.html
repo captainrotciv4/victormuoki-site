@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lab: tools you can try | Victor Muoki</title>
+<meta name="description" content="Free browser tools by Victor Muoki: an ethanol pathway calculator, an explainable credit eligibility demo, and a youth sports consent-form builder.">
+<link rel="canonical" href="https://victormuoki.com/lab">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article"><meta property="og:url" content="https://victormuoki.com/lab">
+<meta property="og:title" content="The Lab: tools you can try | Victor Muoki"><meta property="og:description" content="Free browser tools by Victor Muoki: an ethanol pathway calculator, an explainable credit eligibility demo, and a youth sports consent-form builder.">
+<meta property="og:image" content="https://victormuoki.com/og-share.png"><meta property="og:site_name" content="Victor Muoki">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@CaptainRotciv">
+<meta name="twitter:title" content="The Lab: tools you can try | Victor Muoki"><meta name="twitter:description" content="Free browser tools by Victor Muoki: an ethanol pathway calculator, an explainable credit eligibility demo, and a youth sports consent-form builder.">
+<meta name="twitter:image" content="https://victormuoki.com/og-share.png">
+<meta name="theme-color" content="#0B1120">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Lab: tools you can try", "description": "Free browser tools by Victor Muoki: an ethanol pathway calculator, an explainable credit eligibility demo, and a youth sports consent-form builder.", "url": "https://victormuoki.com/lab", "author": {"@type": "Person", "name": "Victor Muoki", "url": "https://victormuoki.com/"}, "image": "https://victormuoki.com/og-share.png", "dateModified": "2026-11-17", "inLanguage": "en"}</script>
+<style>
+:root{--bg:#0B1120;--gold:#F5C460;--text:rgba(255,255,255,.86);--muted:rgba(255,255,255,.62)}
+*{box-sizing:border-box}html,body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,rgba(245,196,96,.10),transparent),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--gold)}
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;background:rgba(11,17,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(245,196,96,.12)}
+.top .brand{font:700 14px/1 'JetBrains Mono',monospace;letter-spacing:.3em;color:#fff;text-decoration:none}
+.top nav a{margin-left:20px;font-size:13px;color:var(--muted);text-decoration:none}.top nav a:hover{color:var(--gold)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.hero{padding:90px 0 40px}
+.crumb{font:600 11px/1.4 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:Cinzel,serif;font-size:clamp(34px,6vw,64px);line-height:1.05;margin:16px 0 18px;color:#fff}
+.lead{font-size:19px;line-height:1.65;color:var(--muted);max-width:760px}
+h2{font-family:Cinzel,serif;font-size:28px;color:#fff;margin:56px 0 14px}
+h3{color:#fff;font-size:19px;margin:22px 0 8px}
+p,li{font-size:16px;line-height:1.75}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.1);vertical-align:top}
+th{color:var(--gold);font:600 12px/1.4 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.note{border-left:3px solid var(--gold);padding:12px 18px;background:rgba(245,196,96,.06);border-radius:0 12px 12px 0;margin:22px 0}
+.foot{margin-top:80px;padding:40px 0 60px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:13px}
+.cta{display:inline-block;margin-top:14px;padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,#F5C460,#E8A33D);color:#0B1120;font-weight:700;text-decoration:none}
+@media(max-width:640px){.top nav a{margin-left:12px}.top nav a.hide-sm{display:none}}
+
+  #climate, #lab { position: relative; padding: 120px 0; }
+  .vm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 36px; }
+  .vm-card { background: rgba(255,255,255,0.035); border: 1px solid rgba(245,196,96,0.18); border-radius: 18px; padding: 26px; backdrop-filter: blur(6px); }
+  .vm-card h4 { font-size: 20px; margin: 6px 0 10px; color: #fff; }
+  .vm-card p, .vm-card li { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.65; }
+  .vm-card ul { padding-left: 18px; margin: 8px 0 0; }
+  .vm-kicker { font: 600 11px/1.4 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: #F5C460; }
+  .vm-pill { display: inline-block; font: 600 11px/1 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-radius: 999px; border: 1px solid rgba(245,196,96,0.35); color: #F5C460; margin: 4px 6px 0 0; }
+  .vm-wide { grid-column: 1 / -1; }
+  .vm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 18px; }
+  .vm-stat { border-left: 2px solid #F5C460; padding: 4px 0 4px 14px; }
+  .vm-stat b { display: block; font-size: 26px; color: #fff; }
+  .vm-stat span { font-size: 12px; color: rgba(255,255,255,0.6); }
+  .vm-src { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 14px; }
+  .vm-src a, .vm-card a { color: #F5C460; }
+  .vm-tool label { display: block; font-size: 12px; color: rgba(255,255,255,0.65); margin: 12px 0 4px; }
+  .vm-tool input, .vm-tool select, .vm-tool textarea { width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.18); border-radius: 10px; padding: 10px 12px; font: 15px/1.4 inherit; }
+  .vm-tool .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .vm-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px 18px; border-radius: 12px; border: 0; cursor: pointer; font-weight: 700; background: linear-gradient(135deg, #F5C460, #E8A33D); color: #0B1120; }
+  .vm-out { margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: rgba(245,196,96,0.07); border: 1px dashed rgba(245,196,96,0.35); color: #fff; font-size: 14px; line-height: 1.6; white-space: pre-line; }
+  .vm-road { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+  .vm-road div { padding: 18px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); }
+  .vm-road b { color: #F5C460; font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .1em; }
+  @media (max-width: 600px) { #climate, #lab { padding: 80px 0; } .vm-tool .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="/">V·M</a><nav><a href="/">Home</a><a href="/ethanol-pathway" class="hide-sm">Ethanol</a><a href="/plastics-treaty" class="hide-sm">Plastics</a><a href="/lab">Lab</a><a href="/#connect">Connect</a></nav></header>
+<main class="container">
+<section class="hero"><div class="crumb">The Lab</div><h1>Tools you can try</h1><p class="lead">Every tool starts with a real friction from my work. These prototypes run entirely in your browser. Nothing is stored or sent anywhere, and every assumption is visible and editable.</p></section>
+<section>
+  <div>
+    
+
+    <div class="vm-grid">
+      <article class="vm-card vm-tool reveal">
+        <div class="vm-kicker">Climate · Energy</div>
+        <h4>Ethanol Pathway Calculator</h4>
+        <p>Estimate how much cooking ethanol a feedstock supply could make, and how many households it could serve.</p>
+        <label for="et-feed">Feedstock</label>
+        <select id="et-feed">
+          <option value="250">Molasses (≈250 L per tonne)</option>
+          <option value="80">Sugarcane juice (≈80 L per tonne)</option>
+          <option value="400">Maize grain (≈400 L per tonne)</option>
+        </select>
+        <div class="row">
+          <div><label for="et-tonnes">Tonnes per year</label><input id="et-tonnes" type="number" min="0" value="20000"></div>
+          <div><label for="et-yield">Litres per tonne (editable)</label><input id="et-yield" type="number" min="0" value="250"></div>
+        </div>
+        <label for="et-use">Household use, litres per day (assumption)</label>
+        <input id="et-use" type="number" min="0.05" step="0.05" value="0.5">
+        <button class="vm-btn" type="button" id="et-go">Calculate</button>
+        <div class="vm-out" id="et-out" aria-live="polite">Enter values and calculate.</div>
+        <p class="vm-src">Yields are typical literature ranges; replace them with plant data. Benchmarks: 26.5M L current output, 83M L capacity.</p>
+      </article>
+
+      <article class="vm-card vm-tool reveal reveal-delay-1">
+        <div class="vm-kicker">Fintech · BioCredit</div>
+        <h4>Credit Eligibility Explainer</h4>
+        <p>How a transparent, explainable eligibility model could read alternative data. This is an illustration, not a lending decision.</p>
+        <div class="row">
+          <div><label for="ce-months">Months of mobile-money history</label><input id="ce-months" type="number" min="0" value="12"></div>
+          <div><label for="ce-repaid">Past small loans repaid on time</label><input id="ce-repaid" type="number" min="0" value="3"></div>
+        </div>
+        <div class="row">
+          <div><label for="ce-late">Late repayments (last 12 months)</label><input id="ce-late" type="number" min="0" value="0"></div>
+          <div><label for="ce-income">Regular monthly inflows (KES)</label><input id="ce-income" type="number" min="0" value="15000"></div>
+        </div>
+        <label for="ce-consent">Biometric identity consented?</label>
+        <select id="ce-consent"><option value="yes">Yes, explicit consent given</option><option value="no">No</option></select>
+        <button class="vm-btn" type="button" id="ce-go">Explain</button>
+        <div class="vm-out" id="ce-out" aria-live="polite">Enter values and explain.</div>
+      </article>
+
+      <article class="vm-card vm-tool reveal reveal-delay-2">
+        <div class="vm-kicker">Sport · Safeguarding</div>
+        <h4>Athlete &amp; Parent Consent Builder</h4>
+        <p>Generate a plain-English consent form for a youth sports event, aligned with Kenya's Children Act 2022 and Data Protection Act 2019. Review it with your organisation before use.</p>
+        <label for="cf-org">Organisation</label><input id="cf-org" type="text" value="Your club or federation">
+        <label for="cf-event">Event</label><input id="cf-event" type="text" value="National junior tournament">
+        <div class="row">
+          <div><label for="cf-date">Date</label><input id="cf-date" type="text" value="6–9 December 2026"></div>
+          <div><label for="cf-place">Venue</label><input id="cf-place" type="text" value="Venue, city"></div>
+        </div>
+        <label for="cf-photo">Photos and video of the child</label>
+        <select id="cf-photo"><option value="ask">Ask the parent to opt in</option><option value="none">Do not take or publish any</option></select>
+        <button class="vm-btn" type="button" id="cf-go">Generate form</button>
+        <div class="vm-out" id="cf-out" aria-live="polite">Fill in the details and generate.</div>
+      </article>
+    </div>
+
+    <div class="vm-card vm-wide reveal" style="margin-top:20px">
+      <div class="vm-kicker">Roadmap</div>
+      <div class="vm-road">
+        <div><b>NOW</b><p>Three live prototypes: ethanol pathway, credit explainer, consent builder.</p></div>
+        <div><b>NEXT</b><p>Payment reconciliation checker (mobile-money statement vs invoices) and a disease-risk demo from the Disease Prediction Toolkit.</p></div>
+        <div><b>LATER</b><p>County-level ethanol feasibility data, and a Kiswahili version of every tool.</p></div>
+      </div>
+      <p class="vm-src">Primary sources: <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener">Central Bank of Kenya</a> · <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener">World Bank Global Findex</a> · <a href="https://www.odpc.go.ke/" target="_blank" rel="noopener">Office of the Data Protection Commissioner</a> · <a href="http://kenyalaw.org/" target="_blank" rel="noopener">Kenya Law (Children Act 2022)</a> · <a href="https://www.epra.go.ke/" target="_blank" rel="noopener">EPRA</a></p>
+    </div>
+  </div>
+</section>
+<h2>Use cases</h2>
+<table>
+<tr><th>Tool</th><th>Who it's for</th><th>Typical question</th></tr>
+<tr><td>Ethanol Pathway Calculator</td><td>County energy officers, sugar companies, clean-cooking firms, students</td><td>"How many households could our molasses supply cook for?"</td></tr>
+<tr><td>Credit Eligibility Explainer</td><td>Lenders, regulators, borrowers, fintech teams</td><td>"Can this credit decision be explained factor by factor?"</td></tr>
+<tr><td>Athlete &amp; Parent Consent Builder</td><td>Clubs, federations, schools, tournament organisers</td><td>"Do we have proper parental consent and a data notice for this event?"</td></tr>
+</table>
+<p>Read more: <a href="/ethanol-pathway">Kenya Ethanol Pathway</a> · <a href="/plastics-treaty">Youth voice on the plastics treaty</a> · <a href="/#biocredit-case">BioCredit case study</a></p>
+
+<footer class="foot">© 2026 Victor Muoki · Nairobi · <a href="mailto:victor@victormuoki.com">victor@victormuoki.com</a> · <a href="https://www.linkedin.com/in/victor-muoki-2a1a50244" target="_blank" rel="noopener">LinkedIn</a><br>Concepts and proposals on this site are labelled as such and are not deployed projects. Lab tools are demonstrations with editable assumptions and store no data.</footer>
+</main>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return Math.round(n).toLocaleString('en-KE'); };
+  if (!$('et-go')) return;
+  $('et-feed').addEventListener('change', function () { $('et-yield').value = this.value; });
+  $('et-go').addEventListener('click', function () {
+    var t = +$('et-tonnes').value || 0, y = +$('et-yield').value || 0, u = +$('et-use').value || 0.5;
+    var litres = t * y, hh = litres / (u * 365);
+    $('et-out').textContent =
+      'Ethanol: ' + fmt(litres) + ' litres a year\n' +
+      'Households cooked for (full year): ' + fmt(hh) + '\n' +
+      'Equal to ' + (litres / 26500000 * 100).toFixed(1) + '% of Kenya\'s current output and ' + (litres / 83000000 * 100).toFixed(1) + '% of installed capacity.';
+  });
+  $('ce-go') && $('ce-go').addEventListener('click', function () {
+    var m = +$('ce-months').value || 0, r = +$('ce-repaid').value || 0, l = +$('ce-late').value || 0, inc = +$('ce-income').value || 0, c = $('ce-consent').value;
+    if (c !== 'yes') { $('ce-out').textContent = 'No assessment: identity cannot be established without explicit consent. The applicant can still apply through a human-reviewed route.'; return; }
+    var pts = [], s = 0;
+    var a = Math.min(m, 24) / 24 * 30; s += a; pts.push('History: +' + a.toFixed(0) + ' of 30 (' + m + ' months)');
+    var b = Math.min(r, 5) / 5 * 30; s += b; pts.push('On-time repayments: +' + b.toFixed(0) + ' of 30');
+    var d = Math.min(l * 10, 30); s -= d; pts.push('Late repayments: -' + d.toFixed(0));
+    var e = Math.min(inc, 30000) / 30000 * 25; s += e; pts.push('Regular inflows: +' + e.toFixed(0) + ' of 25');
+    s += 15; pts.push('Consented identity: +15');
+    s = Math.max(0, Math.min(100, s));
+    var band = s >= 70 ? 'Likely eligible for a small starter loan' : s >= 45 ? 'Borderline: refer to human review' : 'Not yet: build history first';
+    $('ce-out').textContent = 'Score: ' + s.toFixed(0) + '/100. ' + band + '\n\n' + pts.join('\n') + '\n\nEvery factor is shown, so a decision can be explained and challenged.';
+  });
+  $('cf-go') && $('cf-go').addEventListener('click', function () {
+    var o = $('cf-org').value, ev = $('cf-event').value, dt = $('cf-date').value, pl = $('cf-place').value;
+    var photo = $('cf-photo').value === 'ask'
+      ? 'Photos/video: I DO / DO NOT (circle one) consent to photos or video of my child being taken and published by ' + o + ' for reporting on this event. I can withdraw this consent at any time.'
+      : 'Photos/video: no photos or video of participants will be taken or published by ' + o + '.';
+    $('cf-out').textContent =
+      'PARENT/GUARDIAN CONSENT: ' + ev + '\n' + o + ' · ' + dt + ' · ' + pl + '\n\n' +
+      'Child\'s name: ____________   Date of birth: ________\n' +
+      'Parent/guardian: ____________   Phone: ____________\n\n' +
+      '1. I consent to my child taking part in ' + ev + '.\n' +
+      '2. Medical: allergies/conditions: ____________. In an emergency, I consent to first aid and to my child being taken to the nearest health facility. I will be contacted immediately.\n' +
+      '3. ' + photo + '\n' +
+      '4. Data: ' + o + ' will collect only the details needed for registration and safety, keep them securely, share them only with event organisers, and delete them after the season, in line with the Data Protection Act 2019.\n' +
+      '5. Safeguarding: my child will be supervised by vetted adults at all times. Concerns can be raised with the safeguarding lead: ____________.\n\n' +
+      'Signature: ____________   Date: ________';
+  });
+})();
+</script>
+</body></html>
